@@ -1,10 +1,12 @@
 ﻿@page "/"
+@using trail_weather_frontend.Services.Interfaces
 @using trail_weather_frontend.Services
 @using trail_weather_frontend.DTOs
 @using System.IO
 @using System.Net.Http
 @using System.Text.Json
 @inject ITrailWeatherApiCaller _caller
+@inject INominatimApiCaller _nominatimCaller
 @inject IGeolocationService _geolocationService
 @inject IHttpClientFactory _httpClientFactory
 
@@ -113,7 +115,7 @@
     public async void OnSuccess(GeolocationPosition pos)  
     {  
         position = pos;       
-        detailedPosition = await GetLocationDetailsAsync(position.Coords.Latitude, position.Coords.Longitude);
+        detailedPosition = await _nominatimCaller.GetLocationDetailsAsync(position.Coords.Latitude, position.Coords.Longitude);
         StateHasChanged();
     }
 
@@ -121,36 +123,5 @@
     public void OnError(GeolocationPositionError error)
     {
         Console.WriteLine($"Error: {error.Message}");
-    }    
-
-    public async Task<LocationDetailsDTO> GetLocationDetailsAsync(double latitude, double longitude)
-    {
-        var client = _httpClientFactory.CreateClient();
-        client.BaseAddress = new Uri("https://nominatim.openstreetmap.org");
-        client.DefaultRequestHeaders.Add("Accept", "application/json");
-        client.DefaultRequestHeaders.Add("User-Agent", "TrailWeatherApp");
-
-        var url = $"/reverse.php?lat={latitude}&lon={longitude}&zoom=18&layer=address&format=jsonv2";
-        HttpResponseMessage response = null;
-        try
-        {
-            response = await client.GetAsync(url);
-        }
-        catch (Exception ex)
-        {
-            Console.Write(ex.Message);
-        }
-
-        if (response.IsSuccessStatusCode)
-        {
-            var locationDetailsJson = await response.Content.ReadAsStringAsync();
-            var locationDetails = JsonSerializer.Deserialize<LocationDetailsDTO>(locationDetailsJson);
-            return locationDetails;
-        }
-        else
-        {
-            Console.WriteLine($"Failed to fetch location details: {response.ReasonPhrase}");
-            return null;
-        }
-    }
+    }        
 }

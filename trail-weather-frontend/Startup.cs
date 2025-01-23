@@ -4,8 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Net.Http;
 using trail_weather_frontend.Services;
+using trail_weather_frontend.Services.Interfaces;
 
 namespace trail_weather_frontend
 {
@@ -23,14 +23,21 @@ namespace trail_weather_frontend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddServerSideBlazor();           
-            //services.AddTransient<ITrailWeatherApiCaller, TrailWeatherApiCaller>();
+            services.AddServerSideBlazor();                       
 
             services.AddHttpClient<ITrailWeatherApiCaller, TrailWeatherApiCaller>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:7168/WeatherForecast/");
                 client.DefaultRequestHeaders.Add("Accept", "application/json");                
             });
+
+            services.AddHttpClient<INominatimApiCaller, NominatimApiCaller>(client =>
+            {
+                client.BaseAddress = new Uri("https://nominatim.openstreetmap.org");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("User-Agent", "TrailWeatherApp");
+            });
+
             services.AddGeolocationServices();           
         }
 

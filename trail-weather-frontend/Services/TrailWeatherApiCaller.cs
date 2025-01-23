@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using trail_weather_frontend.DTOs;
+using trail_weather_frontend.Services.Interfaces;
 
 namespace trail_weather_frontend.Services
 {
