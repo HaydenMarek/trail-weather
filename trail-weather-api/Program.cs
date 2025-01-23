@@ -42,6 +42,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => Results.Ok("Minimal api controller result.")); 
+app.MapGet("/ping", () => Results.Ok("pong")); 
 
 app.Run();

@@ -2,8 +2,11 @@
 @using trail_weather_frontend.Services
 @using trail_weather_frontend.DTOs
 @using System.IO
+@using System.Net.Http
+@using System.Text.Json
 @inject IApiCaller _caller
 @inject IGeolocationService _geolocationService
+@inject IHttpClientFactory _httpClientFactory
 
 <h3>TrailWeather</h3>
 
@@ -110,12 +113,31 @@
     {
         position = pos;
         StateHasChanged();
+        _ = GetLocationDetailsAsync(pos.Coords.Latitude, pos.Coords.Longitude);
     }
 
     [JSInvokable]
     public void OnError(GeolocationPositionError error)
-    {
-        // Handle error
+    {        
         Console.WriteLine($"Error: {error.Message}");
+    }
+
+    private async Task GetLocationDetailsAsync(double latitude, double longitude)
+    {
+        var client = _httpClientFactory.CreateClient();
+        client.BaseAddress = new Uri("https://nominatim.openstreetmap.org");
+        client.DefaultRequestHeaders.Add("Accept", "application/json");
+        client.DefaultRequestHeaders.Add("User-Agent", "TrailWeatherApp");
+        var url = $"/reverse.php?lat={latitude}&lon={longitude}&zoom=18&layer=address&format=jsonv2";
+        var response = await client.GetAsync(url);
+        if (response.IsSuccessStatusCode)
+        {
+            var locationDetailsJson = await response.Content.ReadAsStringAsync();
+            var locationDetails = JsonSerializer.Deserialize<LocationDetailsDTO>(locationDetailsJson);                        
+        }
+        else
+        {
+            Console.WriteLine($"Failed to fetch location details: {response.ReasonPhrase}");
+        }
     }
 }
