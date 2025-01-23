@@ -3,6 +3,7 @@
 @using trail_weather_frontend.DTOs
 @using System.IO
 @inject IApiCaller _caller
+@inject IGeolocationService _geolocationService
 
 <h3>TrailWeather</h3>
 
@@ -10,16 +11,26 @@
     <label for="rangeInput">Range (km):</label>
     <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp">
     <button class="btn-primary" @onclick="GetTrailWeather">Get Weather</button>
+
+    @if (position != null)
+    {
+        <span style="margin-left: 10px;">
+            Your current location: Latitude: @position.Coords.Latitude, Longitude: @position.Coords.Longitude
+        </span>
+    }
+    else 
+    {
+        <span style="margin-left: 10px;">
+            Your current location is unknown.
+        </span>
+    }
+
 </div>
 
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
+@if (forecasts != null)
 {
     if (forecasts.Count == 0)
-        return;
+        return;    
 
     <table class="table">
         <thead>
@@ -58,19 +69,13 @@ else
 @code {
     private List<ForecastDTO> forecasts;
     private int range;
+    private GeolocationPosition? position;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        try
-        {
-            forecasts = await _caller.GetTrailWeather(range);
-        }
-        catch (HttpRequestException ex) 
-        {
-            Console.WriteLine(ex.Message);
-            forecasts = new List<ForecastDTO>();            
-        }
-    }    
+        if (firstRender)
+            await _geolocationService.GetCurrentPositionAsync(OnSuccess, OnError);
+    }
 
     private string GetImageSourcePath(int weatherCode)
     {   
@@ -82,13 +87,35 @@ else
     }
 
     private async Task GetTrailWeather()
-    {
-        forecasts = await _caller.GetTrailWeather(range);        
+    {                
+        try
+        {            
+            forecasts = await _caller.GetTrailWeather(range, position.Coords.Latitude, position.Coords.Longitude);
+        }
+        catch (HttpRequestException ex)
+        {
+            Console.WriteLine(ex.Message);
+            forecasts = new List<ForecastDTO>();
+        }
     }
 
     private async Task HandleKeyUp(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")        
             await GetTrailWeather();
+    }
+
+    [JSInvokable]
+    public void OnSuccess(GeolocationPosition pos)
+    {
+        position = pos;
+        StateHasChanged();
+    }
+
+    [JSInvokable]
+    public void OnError(GeolocationPositionError error)
+    {
+        // Handle error
+        Console.WriteLine($"Error: {error.Message}");
     }
 }

@@ -37,4 +37,7 @@
     <None Include="wwwroot\WeatherIcons\96_thunderstorm-with-hail%404x.png" />
     <None Include="wwwroot\WeatherIcons\99_thunderstorm-with-hail%404x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Blazor.Geolocation" Version="9.0.1" />
+  </ItemGroup>
 </Project>

@@ -19,23 +19,18 @@ namespace trail_weather_api.Controllers
             _forecastService = forecastService;
         }
 
-        [HttpGet("{range}", Name = "GetByRangeFromCurrentLocation")]
-        public async Task<List<ForecastDTO>> Get(int range)
-        {
-            GeoCoordinate currentLocation = new GeoCoordinate
-            {
-                Latitude = 49.19,
-                Longitude = 18.73
-            };
-
+        [HttpGet("{range}, {lat}, {lon}", Name = "GetByRangeFromLocation")]
+        public async Task<List<ForecastDTO>> Get(int range, double lat, double lon)
+        {            
+            GeoCoordinate location = new GeoCoordinate { Latitude = lat, Longitude = lon };
             List<SportCenter> sportCenters = _sportCenterRepository.GetSportCenters();
 
             var filteredByDistance = sportCenters
-                .Where(sc => CalculateDistance(currentLocation, new GeoCoordinate { Latitude = sc.GeoData.Lat, Longitude = sc.GeoData.Lon }) <= range)
+                .Where(sc => CalculateDistance(location, new GeoCoordinate { Latitude = sc.GeoData.Lat, Longitude = sc.GeoData.Lon }) <= range)
                 .Select(sc => new ForecastDTO
                 {
                     Name = sc.Name,
-                    DistanceTo = CalculateDistance(currentLocation, new GeoCoordinate { Latitude = sc.GeoData.Lat, Longitude = sc.GeoData.Lon }),
+                    DistanceTo = CalculateDistance(location, new GeoCoordinate { Latitude = sc.GeoData.Lat, Longitude = sc.GeoData.Lon }),
                     Coordinate = new GeoCoordinateDTO { Lat = sc.GeoData.Lat, Lon = sc.GeoData.Lon },
                     DailyData = new DailyDataDTO()
                 }).ToList();

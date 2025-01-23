@@ -29,6 +29,7 @@ namespace trail_weather_frontend
                 client.BaseAddress = new Uri("https://localhost:7168/WeatherForecast/");
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             });
+            services.AddGeolocationServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
