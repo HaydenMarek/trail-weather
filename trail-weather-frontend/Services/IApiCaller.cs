@@ -6,6 +6,6 @@ namespace trail_weather_frontend.Services
 {
     public interface IApiCaller
     {
-        Task<List<ForecastDTO>> GetTrailWeather(int range);
+        Task<List<ForecastDTO>> GetTrailWeather(int range, double lat, double lon);
     }
 }

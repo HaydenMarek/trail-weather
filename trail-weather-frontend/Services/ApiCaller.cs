@@ -15,10 +15,10 @@ namespace trail_weather_frontend.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<ForecastDTO>> GetTrailWeather(int range)
+        public async Task<List<ForecastDTO>> GetTrailWeather(int range, double lat, double lon)
         {
             _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-            return await _httpClient.GetFromJsonAsync<List<ForecastDTO>>($"{range}");
+            return await _httpClient.GetFromJsonAsync<List<ForecastDTO>>($"{range}, {lat}, {lon}");
         }
     }
 }
