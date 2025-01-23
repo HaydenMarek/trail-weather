@@ -1,0 +1,94 @@
+﻿@page "/"
+@using trail_weather_frontend.Services
+@using trail_weather_frontend.DTOs
+@using System.IO
+@inject IApiCaller _caller
+
+<h3>TrailWeather</h3>
+
+<div>
+    <label for="rangeInput">Range (km):</label>
+    <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp">
+    <button class="btn-primary" @onclick="GetTrailWeather">Get Weather</button>
+</div>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    if (forecasts.Count == 0)
+        return;
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Bikepark Name</th>
+                <th>Distance to (km)</th>
+                @foreach (var time in forecasts[0].DailyData.TimeList)
+                {
+                    @if(DateTime.Now.Date != DateTime.Parse(@time).Date)
+                    {
+                        <th>@DateTime.Parse(@time).DayOfWeek.ToString().Substring(0, 3)</th>                        
+                    }
+                    else
+                    {
+                        <th>(Now) <br> @DateTime.Parse(@time).DayOfWeek.ToString().Substring(0, 3) </th>
+                    }            
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Name</td>
+                    <td>@forecast.DistanceTo.ToString()</td> 
+                    @foreach (var weathCode in forecast.DailyData.WeatherCodeList)
+                    {
+                        <td> <img src=@GetImageSourcePath(weathCode)></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ForecastDTO> forecasts;
+    private int range;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            forecasts = await _caller.GetTrailWeather(range);
+        }
+        catch (HttpRequestException ex) 
+        {
+            Console.WriteLine(ex.Message);
+            forecasts = new List<ForecastDTO>();            
+        }
+    }    
+
+    private string GetImageSourcePath(int weatherCode)
+    {   
+        string weatherCodeFolderPath = Path.Combine("wwwroot", "WeatherIcons");
+        var weatherCodeFiles = Directory.GetFiles(weatherCodeFolderPath).ToList();
+        var matchedFile = weatherCodeFiles.Where(weatherCodeFiles => weatherCodeFiles.Contains("\\" + weatherCode.ToString() + "_")).Single().Substring(21);
+
+        return $"WeatherIcons/{matchedFile}";
+    }
+
+    private async Task GetTrailWeather()
+    {
+        forecasts = await _caller.GetTrailWeather(range);        
+    }
+
+    private async Task HandleKeyUp(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")        
+            await GetTrailWeather();
+    }
+}

@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>trail_weather_frontend</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\WeatherIcons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\WeatherIcons\0_clear%404x.png" />
+    <None Include="wwwroot\WeatherIcons\1_mostly-clear%404x.png" />
+    <None Include="wwwroot\WeatherIcons\2_partly-cloudy%404x.png" />
+    <None Include="wwwroot\WeatherIcons\3_overcast%404x.png" />
+    <None Include="wwwroot\WeatherIcons\45_fog%404x.png" />
+    <None Include="wwwroot\WeatherIcons\48_rime-fog%404x.png" />
+    <None Include="wwwroot\WeatherIcons\51_light-drizzle%404x.png" />
+    <None Include="wwwroot\WeatherIcons\53_moderate-drizzle%404x.png" />
+    <None Include="wwwroot\WeatherIcons\55_dense-drizzle%404x.png" />
+    <None Include="wwwroot\WeatherIcons\56_light-freezing-drizzle%404x.png" />
+    <None Include="wwwroot\WeatherIcons\57_dense-freezing-drizzle%404x.png" />
+    <None Include="wwwroot\WeatherIcons\61_light-rain%404x.png" />
+    <None Include="wwwroot\WeatherIcons\63_moderate-rain%404x.png" />
+    <None Include="wwwroot\WeatherIcons\65_heavy-rain%404x.png" />
+    <None Include="wwwroot\WeatherIcons\66_light-freezing-rain%404x.png" />
+    <None Include="wwwroot\WeatherIcons\67_heavy-freezing-rain%404x.png" />
+    <None Include="wwwroot\WeatherIcons\71_slight-snowfall%404x.png" />
+    <None Include="wwwroot\WeatherIcons\73_moderate-snowfall%404x.png" />
+    <None Include="wwwroot\WeatherIcons\75_heavy-snowfall%404x.png" />
+    <None Include="wwwroot\WeatherIcons\77_snowflake%404x.png" />
+    <None Include="wwwroot\WeatherIcons\80_light-rain%404x.png" />
+    <None Include="wwwroot\WeatherIcons\81_moderate-rain%404x.png" />
+    <None Include="wwwroot\WeatherIcons\82_heavy-rain%404x.png" />
+    <None Include="wwwroot\WeatherIcons\85_slight-snowfall%404x.png" />
+    <None Include="wwwroot\WeatherIcons\86_heavy-snowfall%404x.png" />
+    <None Include="wwwroot\WeatherIcons\95_thunderstorm%404x.png" />
+    <None Include="wwwroot\WeatherIcons\96_thunderstorm-with-hail%404x.png" />
+    <None Include="wwwroot\WeatherIcons\99_thunderstorm-with-hail%404x.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>TRAIL HUNTER</name>
+    <description>Mapa trailových center a bikeparků pro horská kola v Česku, na Slovensku a v okolí. Spravuje Trail Hunter. Více info na www.trailhunter.cz.</description>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-960-DB4436-labelson">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/960-wht-star-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-983-labelson">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/983-biz-bicycle.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-983-labelson-nodesc">
+      <IconStyle>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/983-biz-bicycle.png</href>
+        </Icon>
+      </IconStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Folder>
+      <name>Trailová centra</name>
+      <Placemark>
+        <name>Rychlebské stezky</name>
+        <description><![CDATA[<img src="https://lh3.googleusercontent.com/umsh/AN6v0v4lpxrjUJ4P4iOM7bluSuGCqnM2Lg2BT-2h5ukEyD9uIA6wfCNGnL9S2V2V8Lm7UNYKCwg4Z_YS1rjEMObmRNfM_D-ZXLQPLaVkuZYE-f7DeM8-LQzqj8Q-ywcjfQAVbUtVC9FlWQhmGCThyWA3AAYB" height="200" width="auto" /><br><br>Rozsáhlá síť vybudovaných trailových stezek primárně pro zkušenější bikery. Více informací:<br>www.trailhunter.cz/rychlebske-stezky ‎<br><br><a href="https://www.youtube.com/watch?v=zYBfnqPgT5w"><img src="https://img.youtube.com/vi/zYBfnqPgT5w/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/zYBfnqPgT5w">https://www.youtube.com/embed/zYBfnqPgT5w</a>]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://lh3.googleusercontent.com/umsh/AN6v0v4lpxrjUJ4P4iOM7bluSuGCqnM2Lg2BT-2h5ukEyD9uIA6wfCNGnL9S2V2V8Lm7UNYKCwg4Z_YS1rjEMObmRNfM_D-ZXLQPLaVkuZYE-f7DeM8-LQzqj8Q-ywcjfQAVbUtVC9FlWQhmGCThyWA3AAYB https://www.youtube.com/embed/zYBfnqPgT5w</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.1588045,50.3017688,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bike aréna Vsetín</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=Ejv3bBooCNI"><img src="https://img.youtube.com/vi/Ejv3bBooCNI/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/Ejv3bBooCNI">https://www.youtube.com/embed/Ejv3bBooCNI</a><br><br>Lesní singletrailové zážitky různých náročností. Stezky míří z kopce dolů, nahoru si vyšlápnete po asfaltce. Více informací: www.trailhunter.cz/bike-arena-vsetin/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/Ejv3bBooCNI</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.9541519,49.3596974,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cyklo aréna Vysočina</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=MVu1-XQrYoo"><img src="https://img.youtube.com/vi/MVu1-XQrYoo/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/MVu1-XQrYoo">https://www.youtube.com/embed/MVu1-XQrYoo</a><br><br>Cyklo aréna Vysočina je singletrailové centrum v Novém městě na Moravě. Přesně tam, kde se pořádají závody světového poháru horských kol v cross country (XC). Na singletrailech se ale nemusíte hnát za nejlepším časem, můžete si prostě jen užít jízdu na horském kole v pěkném lese.INFO: www.trailhunter.cz/cyklo-arena-vysocina/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/MVu1-XQrYoo</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.0513902,49.5784209,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trutnov trails</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=QGYRfCcD55s"><img src="https://img.youtube.com/vi/QGYRfCcD55s/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/QGYRfCcD55s">https://www.youtube.com/embed/QGYRfCcD55s</a><br><br>Rozsáhlé trailové centrum, kde si užijí především zdatnější bikeři. Najdete zde pestrou škálu trailů od lehčích až po technické lahůdky. Více info: www.trailhunter.cz/trutnov-trails/<br><br><a href="https://www.youtube.com/watch?v=NXkMUlmurWM"><img src="https://img.youtube.com/vi/NXkMUlmurWM/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/NXkMUlmurWM">https://www.youtube.com/embed/NXkMUlmurWM</a>]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/QGYRfCcD55s https://www.youtube.com/embed/NXkMUlmurWM</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            15.9761488,50.575228,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lipovské stezky</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=8fXSqdn6IdU"><img src="https://img.youtube.com/vi/8fXSqdn6IdU/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/8fXSqdn6IdU">https://www.youtube.com/embed/8fXSqdn6IdU</a><br><br>Menší trailcentrum s flowtraily, které na odpoledne zabaví celou rodinu. Informace:  www.trailhunter.cz/lipovske-stezky<br><br><a href="https://www.youtube.com/watch?v=5kbCCqsP8bk"><img src="https://img.youtube.com/vi/5kbCCqsP8bk/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/5kbCCqsP8bk">https://www.youtube.com/embed/5kbCCqsP8bk</a>]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/8fXSqdn6IdU https://www.youtube.com/embed/5kbCCqsP8bk</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.117402,50.2256227,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kokořínské stezky</name>
+        <description>Přírodní stezky zmapované a udržované místním spolkem bikerů. Nejedná se o klasické trailcentrum, jsou to víceméně doporučené trasy, ale občas jsou stezky i lehce upraveny. Podrobné informace a nezbytné mapy: www.kokostezky.cz</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            14.5807457,50.4382107,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trail of Life</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=weetAY73dZ0"><img src="https://img.youtube.com/vi/weetAY73dZ0/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/weetAY73dZ0">https://www.youtube.com/embed/weetAY73dZ0</a><br><br>Bikové centrum s kvalitním pumptrackem a sítí čistě přírodních trailů.<br><br>Podrobné informace o lokalitě: https://www.trailhunter.cz/trail-of-life/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/weetAY73dZ0</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.3912179,48.8619798,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sportpark Boskovice</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=0IIxI6HPpKc"><img src="https://img.youtube.com/vi/0IIxI6HPpKc/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/0IIxI6HPpKc">https://www.youtube.com/embed/0IIxI6HPpKc</a><br><br>Singletrailová lokalita s 10 km pestrých singletrailů, velkým pumptrackem a základnou. Kompletní info tady: www.trailhunter.cz/boskovicke-stezky<br><br><a href="https://www.youtube.com/watch?v=SmnvEPiKiDg"><img src="https://img.youtube.com/vi/SmnvEPiKiDg/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/SmnvEPiKiDg">https://www.youtube.com/embed/SmnvEPiKiDg</a>]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/0IIxI6HPpKc https://www.youtube.com/embed/SmnvEPiKiDg</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.6813981,49.4947966,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singltrek pod Smrkem</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=3_mStN26ZTE"><img src="https://img.youtube.com/vi/3_mStN26ZTE/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/3_mStN26ZTE">https://www.youtube.com/embed/3_mStN26ZTE</a><br><br>Singltrek pod Smrkem je jedna z nejstarších lokalit s traily pro horská kola u nás. A také jedna z nejrozlehlejších. Nabídne pohodové ježdění po lesních stezkách určených výhradně bikerům. INFO: www.trailhunter.cz/singltrek-pod-smrkem/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/3_mStN26ZTE</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            15.2457619,50.9272082,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singltrail Moravský kras - Mariánské údolí</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=mLAZi1Y_sQc"><img src="https://img.youtube.com/vi/mLAZi1Y_sQc/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/mLAZi1Y_sQc">https://www.youtube.com/embed/mLAZi1Y_sQc</a><br><br>Technicky nenáročné, ale přesto zábavné flowtraily na okraji Brna. <br>www.trailhunter.cz/singletrail-moravsky-kras-marianske-udoli-v-brne/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/mLAZi1Y_sQc</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.7106557,49.2103644,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bielsko-Biała</name>
+        <description>Rozsáhlé polské trailcentrum blízko za hranicemi Česka. Několik dlouhých trailů různých obtížností od uměle vybudovaného flowtrailu s nekonečným návalem klopenek po přírodní enduro. K dispozici je sice lanovka, ale ta vás zavede jen na část trailů. Více info: http://endurotrails.pl/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            19.0550351,49.7790471,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trailpark Hohe Wand Wiese</name>
+        <description>Menší trailcentrum se třemi sjezdovými traily, každý má cca 1,5 km. Nejdelší je modrý flowtrail s klopenkami, nejnáročnější je černé enduro.  K dispozici půjčovna, škola a pumptrack. http://www.hohewandwiese.com/de/trailcenter</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            16.2027955,48.2296972,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trailcentrum Rabenberg</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=67_mfJ-50vA"><img src="https://img.youtube.com/vi/67_mfJ-50vA/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/67_mfJ-50vA">https://www.youtube.com/embed/67_mfJ-50vA</a><br><br>Německé trailcentrum s pestrou nabídkou tras různých náročností. Více info: http://www.trailcenter-rabenberg.de/en/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/67_mfJ-50vA</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            12.740981,50.4539042,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Enduro traily Srebrna Góra</name>
+        <description>Polská lokalita v enduro stylu. Čekejte přírodní tratě v náročném terénu.</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            16.658299,50.5818094,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bojnicko – Dubnické cyklotrasy</name>
+        <description>Trailové centrum s přírodními traily, ale také kouskem ryzího flowtrailu jménem Turzov trail. Najdete zde přibližně 30 km značených tras, některé jsou ale ještě ve vývoji. Více informací: https://www.facebook.com/hornonitrianskestopy/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            18.5623156,48.7802381,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletrails Lechnica</name>
+        <description>Traily v přírodním stylu v krásné krajině. Čekejte spíše pohodové flow než adrenalin, ale hlavně také parádní výhledy do krajiny. Více informací: http://www.lechnica.sk/singletrails-lechnica</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            20.4081963,49.3831258,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Košické singletraily</name>
+        <description>Zábavné traily různých obtížností. Je zde více kratších trailů, které se dají různě kombinovat. Více informací: https://www.ke-cy.sk/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            21.2073144,48.7472641,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mine trails</name>
+        <description>Propletená síť singletrailů na kopci Rákoš v dubovém lese nad Rožňavou. Více informací: https://www.facebook.com/mine.trails.roznava/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            20.5507643,48.6860671,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Laskomerské singletraily</name>
+        <description>Přírodní singletraily různých náročností. Více informací: http://bbtrails.sk/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            19.1069779,48.7469411,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sekaninske enduro traily</name>
+        <description>Náročnější přírodní ježdění pro vyznavače ryzího endura. Lokalita by měla být legální a trasy jsou v terénu značeny, byť trochu ledabyle. Je ale znát, že toto je místo pro zkušenější bikery a nemá ambice lákat masovou bikerskou veřejnost. Sem si vemte kolo s vyššími zdvihy a chrániče. Traily jsou na  Trailforks: https://www.trailforks.com/region/sekaninske-enduro-traily-16413/trails/ Další informace na facebookové stránce: https://www.facebook.com/sekaninskeendurotraily/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            18.6258811,48.6724667,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Prešovské singletracky</name>
+        <description>Pět lesních trailů různé náročnosti, nahoru na kopec musíte za své. Lokalita vzniká pod záštitou SloMBA. Více info: http://slomba.sk/data/ewfqqrf.png</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            21.225596,48.9862719,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Babia Góra Trails</name>
+        <description>15 km různorodých trailů od čistého flow až po enduro. Více informací: http://babiagoratrails.com/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            19.533081,49.6374169,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bike X Zone Sušice</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=F6zhBM45sAQ"><img src="https://img.youtube.com/vi/F6zhBM45sAQ/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/F6zhBM45sAQ">https://www.youtube.com/embed/F6zhBM45sAQ</a><br><br>Vybudované traily namixované s legalizovanými úseky z enduro závodů. Více informací:  https://www.trailhunter.cz/bike-x-zone-susice/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/F6zhBM45sAQ</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            13.5422654,49.220318,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Šemberské stezky</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=Qe_Oq64-Hxw"><img src="https://img.youtube.com/vi/Qe_Oq64-Hxw/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/Qe_Oq64-Hxw">https://www.youtube.com/embed/Qe_Oq64-Hxw</a><br><br>Tři klesající singletraily plné klopenek a terénních vln. Povrch je udusaný, takže jízdu zvládnou i začátečníci, ale kdo už má kolo v ruce, může si při vyšších rychlostech užít dynamiku flowtrailu nebo technický úsek na černém trailu. Více informací: https://www.trailhunter.cz/semberske-stezky/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/Qe_Oq64-Hxw</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.845215,50.0400847,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletrack Kudowa-Zdrój</name>
+        <description>4 singletraily nenáročného stylu hned za českými hranicemi. Celková délka cca 14 km,. Traily jsou vyhlazené, bez skoků, spíše pro začínající bikery nebo vyznavače lehkého XC.</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            16.2173842,50.4172494,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singltrek Suchák</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=Slw5_t16Wmo"><img src="https://img.youtube.com/vi/Slw5_t16Wmo/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/Slw5_t16Wmo">https://www.youtube.com/embed/Slw5_t16Wmo</a><br><br>Nová lokalita s traily ve stylu singltreků jak je známe z Nového Města pod Smrkem. Přes 20 kilometrů stezek ve třech okruzích s odstupňovanou náročností. Více informací: https://www.trailhunter.cz/singltrek-suchak/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/Slw5_t16Wmo</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.6891234,50.0519538,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletrail Moravský Kras - Jedovnice</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=lznUzF5T5-0"><img src="https://img.youtube.com/vi/lznUzF5T5-0/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/lznUzF5T5-0">https://www.youtube.com/embed/lznUzF5T5-0</a><br><br>Pohodové ježdění po 20 km upravených lesních stezek a k tomu skvělé zázemí. Tím láká horské cyklisty Singletrail Moravský Kras v Jedovnicích. Sem si bez obav mohou troufnout i začátečníci. INFO: https://www.trailhunter.cz/jedovnice-singletrail/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/lznUzF5T5-0</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.7651207,49.3330091,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MTB-Area Anninger</name>
+        <description>Trailové centrum v blízkosti Vídně, které nabídne svezení po méně náročných přírodních trailech, https://www.wienerwald.info/mountainbike-area-anninger</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            16.2813048,48.071222,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singltrek Moravská Třebová</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=9g1yi4IClYM"><img src="https://img.youtube.com/vi/9g1yi4IClYM/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/9g1yi4IClYM">https://www.youtube.com/embed/9g1yi4IClYM</a><br><br>20 km singletrailových stezek a pumptrack v zázemí. Více informací: https://moravskatrebova.singltrek.cz/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/9g1yi4IClYM</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.6649606,49.7561342,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Traily Vír</name>
+        <description>Nová lokalita s přírodními traily. Více informací: https://www.trailyvir.cz/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            16.312891,49.5583412,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>OKO Trails</name>
+        <description>Nově budované singletrailové centrum: https://okoeverywhere.com/oko-trails/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            18.7045621,49.2245962,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletrack Zdobnice</name>
+        <description>11 km stezek mírné náročnosti, bez lanovky. Více info: https://www.kudyznudy.cz/aktivity/singletrack-zdobnice</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            16.4060329,50.2366253,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Divo Traily</name>
+        <description>Příměstská síť singletrailů v lese u Trenčína. Nadšenecky budované traily jsou zlegalizované a udržované. Více info: https://www.divozdruzenie.sk/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            18.0475635,48.883447,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hradská Hora Trails</name>
+        <description><![CDATA[Traily různé náročnosti od lehkých po skákací. Info na Facebooku:<br>https://www.facebook.com/HradskaHoraTrails <br>nebo TrailForks:<br>trailforks.com/region/hradska-hora-trails]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            19.7326653,49.0443672,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Klobouk trails</name>
+        <description>Zatím dva cca kilometrové traily dolů a technicky zajímavý stoupák nahoru. Tyhle traily nejsou úplně pro začátečníky a jsou to v podstatě takové legalizované ilegály. Přírodní ježdění ve stylu endura. Info: https://www.klobouktrails.cz/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            14.1448954,50.7678539,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Baťové traily</name>
+        <description><![CDATA[Menší lokalita s několika traily. Viz: https://www.trailforks.com/region/ba-ove-traily/ <br>Novinky sledujte na FB: https://www.facebook.com/Batovetraily]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            18.3756851,48.6175502,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trail Helligon + Bajkom k tajchom</name>
+        <description>Trail Helligon je flowtrail v turistickém centru Salamandra a je u něj i lanovka, která vás vyveze nahoru. Jezdit jen po tomto jednom 2km dlouhém flowtrailu může brzy nudit, ale v okolí je zábavy více než dost díky vytrasovaným okruhům v rámci projektu Bajkom k tajchom. http://bajkomktajchom.sk</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            18.8541987,48.4580985,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletraily na Pekláku</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=MOdvMt5fT4Y"><img src="https://img.youtube.com/vi/MOdvMt5fT4Y/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/MOdvMt5fT4Y">https://www.youtube.com/embed/MOdvMt5fT4Y</a><br><br>Peklák je známý především díky bikeparku, ale v okolních lesích je i síť singletrailů, na kterých se šlape za své a můžete na ně v klidu vyrazit na běžném horském kole. Uvidíte je v poslední třetině mého videa: https://www.youtube.com/watch?v=MOdvMt5fT4Y]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/MOdvMt5fT4Y</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.4310358,49.9095562,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Madeira</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=0QBSD269SNs"><img src="https://img.youtube.com/vi/0QBSD269SNs/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/0QBSD269SNs">https://www.youtube.com/embed/0QBSD269SNs</a><br><br>Madeira je ráj pro bikery: https://www.thmadeira.cz/]]></description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/0QBSD269SNs</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -16.9130686,32.6466861,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Bikeparky s lanovkou</name>
+      <Placemark>
+        <name>Bikepark Ještěd</name>
+        <description>Klasický bikepark pro downhill se zázemím lyžařského střediska. Vhodné pro zkušenější bikery. </description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            15.0117123,50.737528,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Kopřivná</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=24fkHk0yqoQ"><img src="https://img.youtube.com/vi/24fkHk0yqoQ/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/24fkHk0yqoQ">https://www.youtube.com/embed/24fkHk0yqoQ</a><br><br>5 tratí a hromada zábavy. Na kole si tu užijí rodinky s dětmi i vyznavači downhillu. Koncentrovaná a pestrá bikerská lokalita v menším lyžařském středisku. Info: https://www.youtube.com/watch?v=24fkHk0yqoQ]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/24fkHk0yqoQ</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.307297,50.0339614,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Kouty</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=KtYt_d-R5tk"><img src="https://img.youtube.com/vi/KtYt_d-R5tk/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/KtYt_d-R5tk">https://www.youtube.com/embed/KtYt_d-R5tk</a><br><br>Bike park v zázemí lyžařského střediska, tedy s lanovkou a zaměřením na downhill.  Informace: https://www.trailhunter.cz/bikepark-kouty/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/KtYt_d-R5tk</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.1198535,50.0991451,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Lipno</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=NgDV7EcUMSE"><img src="https://img.youtube.com/vi/NgDV7EcUMSE/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/NgDV7EcUMSE">https://www.youtube.com/embed/NgDV7EcUMSE</a><br><br>Menší bikepark s pohodlnou lanovkou a dvěma lajnami menší náročnosti. Informace: www.lipnoservis.cz/letni-aktivity/bikepark-lipno/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/NgDV7EcUMSE</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.2214048,48.6439969,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Monínec</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=kEMop2tE0zo"><img src="https://img.youtube.com/vi/kEMop2tE0zo/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/kEMop2tE0zo">https://www.youtube.com/embed/kEMop2tE0zo</a><br><br>Bike park vybudovaný v rámci menšího lyžařského areálu. Nabízí dvě lajny s překážkami, nahoru vás dostane lanovka. Informace: http://leto.moninec.cz/cs/bikepark]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/kEMop2tE0zo</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.5215574,49.5499373,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Rokytnice nad Jizerou</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=EQfF9SVDpxg"><img src="https://img.youtube.com/vi/EQfF9SVDpxg/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/EQfF9SVDpxg">https://www.youtube.com/embed/EQfF9SVDpxg</a><br><br>Bikepark v areálu velkého lyžařského střediska. Informace: http://www.skiareal-rokytnice.cz/letni-aktivity/bikepark/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/EQfF9SVDpxg</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            15.4782343,50.7373854,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Špičák</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=Myjsrm4_ruU"><img src="https://img.youtube.com/vi/Myjsrm4_ruU/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/Myjsrm4_ruU">https://www.youtube.com/embed/Myjsrm4_ruU</a><br><br>Bikepark v areálu lyžařského střediska. Více informací: https://www.trailhunter.cz/bikepark-spicak/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/Myjsrm4_ruU</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            13.2209408,49.165206,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Single Trails Bílá</name>
+        <description>Traily v rámci menšího lyžařského střediska. Zatím jen dvě lajny. Více info: www.singletrailsbila.cz</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            18.4573746,49.4431846,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trailpark Dolní Morava</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=bx6x4uYfees"><img src="https://img.youtube.com/vi/bx6x4uYfees/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/bx6x4uYfees">https://www.youtube.com/embed/bx6x4uYfees</a><br><br>Bikepark v areálu lyžařského střediska, který se zaměřuje na flow traily a skoky. Více info: www.trailhunter.cz/dolni-morava/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/bx6x4uYfees</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8153155,50.1518091,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trail Park Klínovec</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=0DCeCe3xffg"><img src="https://img.youtube.com/vi/0DCeCe3xffg/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/0DCeCe3xffg">https://www.youtube.com/embed/0DCeCe3xffg</a><br><br>Bikepark s lanovkou, který obsahuje ryzí DH trať, ale i dlouhé flow traily pro začátečníky. Podrobné informace: https://www.trailhunter.cz/trail-park-klinovec/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/0DCeCe3xffg</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            12.9671715,50.3945947,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Tanvaldský Špičák</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=q5YZLYf2rr4"><img src="https://img.youtube.com/vi/q5YZLYf2rr4/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/q5YZLYf2rr4">https://www.youtube.com/embed/q5YZLYf2rr4</a><br><br>Bikepark, kde najdete flowtraily sjízdné i běžnými bikery bez sjezdových kol a integrálek. Ti si tady také užijí, ale na druhé straně kopce. Více info: https://www.trailhunter.cz/tanvaldsky-spicak-bikepark/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/q5YZLYf2rr4</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            15.272541,50.7596717,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Klíny</name>
+        <description>Nový bikepark s flowtraily i náročnějšími sjezdovými tratěmi. Info: www.kliny.cz/leto/letni-aktivity/bikepark</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            13.5660767,50.6275981,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Říčky</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=dGE-ZbFGeOM"><img src="https://img.youtube.com/vi/dGE-ZbFGeOM/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/dGE-ZbFGeOM">https://www.youtube.com/embed/dGE-ZbFGeOM</a><br><br>Bikepark vybudovaný v lyžařském středisku se sedačkovou lanovkou. Není to zdaleka jen pro sjezdaře, tratě jsou tu orientovány spíše na trail huntery hledající technické singletraily a flowtraily. Více info: https://skiricky.cz/bikepark/<br><br><a href="https://www.youtube.com/watch?v=RRrb1TQQTbs"><img src="https://img.youtube.com/vi/RRrb1TQQTbs/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/RRrb1TQQTbs">https://www.youtube.com/embed/RRrb1TQQTbs</a>]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/dGE-ZbFGeOM https://www.youtube.com/embed/RRrb1TQQTbs</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.4591503,50.2267278,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Malino Brdo</name>
+        <description>Velký bikepark v lyžařském středisku. Dlouhé sjezdové traily, poměrně náročné. Více info: http://www.bikepark.sk/</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            19.2724121,49.0696769,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikewelt Schöneck</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=-NUpB9oCzMI"><img src="https://img.youtube.com/vi/-NUpB9oCzMI/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/-NUpB9oCzMI">https://www.youtube.com/embed/-NUpB9oCzMI</a><br><br>Bikepark s flowtraily i náročnějšími lajnami nedaleko za českými hranicemi. Více info: www.trailhunter.cz/bikepark-schoneck/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/-NUpB9oCzMI</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            12.3404145,50.3856574,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Geisskopf</name>
+        <description>Bikepark s lanovkou a pestrou nabídkou trailů od dětské trasy, přes flowtrail plný klopenek až po přírodní freeride a skákavé slope style trasy. Více info: http://www.bikepark.net</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            13.0437487,48.9347854,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cyklotrasy Paseky</name>
+        <description>Menší bikepark se dvěma lajnami v DH a enduro stylu, které svým provedením nijak zvlášť nenadchnou, ovšem jsou to jediné legální traily v národním park Malá Fatra, a tvůrci měli značně omezené možnosti, jak je tvořit. Tak díky aspoň za to a na pár hodin zabaví. A ty výhledy! :-) Více informací: http://leto.vratna.sk/sk/cyklotrasy/cyklotrasy</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            19.0356068,49.2286694,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Koliba</name>
+        <description>Domovský spot bikerů z Bratislavy. Velmi blízko města tu vznikl bikepark s několika sjezdovými trasami různých náročností. Zajezdí si začátečníci i zkušení střelci, lanovka vás přitom vyveze nahoru.  Více informací: http://bikeparkkoliba.sk/</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            17.0968741,48.1854318,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Jasenská</name>
+        <description>Klasický bikepark v rámci lyžařského střediska. Nabízí 6 tratí různých náročností. Více informací: http://www.jasenskadolina.sk/bike-park-jasenska</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            19.0094485,49.0123997,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Kubínska hoľa</name>
+        <description>Bikepark v lyžařském středisku. Tři tratě dolů, hlavním lákadlem je náročná sjezdová trať, kde se jezdí i závody v DH. Více informací: https://www.facebook.com/Bike-Park-Kub%C3%ADnska-Ho%C4%BEa-1605174983073855/</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            19.2671837,49.2510575,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Bachledka</name>
+        <description>Pět DH tratí a spousta zábavy pro vyznavače sjezdu. https://bachledka.sk/bikepark</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            20.3095409,49.2716877,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Express Karlov</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=oq4FUq1TXec"><img src="https://img.youtube.com/vi/oq4FUq1TXec/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/oq4FUq1TXec">https://www.youtube.com/embed/oq4FUq1TXec</a><br><br>Nový bikepark v Karlove u lanovky Ski Express. Více informací: https://www.youtube.com/watch?v=oq4FUq1TXec]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/oq4FUq1TXec</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.2872735,50.0188266,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Mýto</name>
+        <description>Nahoru lanovkou, dolů buď DH lajnou, dvěma freeridovými nebo rodinným trailem. Délka trailů kolem 1,5 km, více informací https://www.kopeczabavy.sk/sk/profi-bikepark</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            19.620625,48.8462823,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trailpark Plešivec</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=BTjg-bc5bmU"><img src="https://img.youtube.com/vi/BTjg-bc5bmU/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/BTjg-bc5bmU">https://www.youtube.com/embed/BTjg-bc5bmU</a><br><br>Trailpark nabízející modrý flowtrail, středně náročnou červenou i drsné černé traily ve stylu ryzího endura. Více informací: https://www.trailhunter.cz/trailpark-plesivec]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/BTjg-bc5bmU</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            12.8247966,50.3464719,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Kraličák</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=8WOECXpsR5I"><img src="https://img.youtube.com/vi/8WOECXpsR5I/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/8WOECXpsR5I">https://www.youtube.com/embed/8WOECXpsR5I</a><br><br>Areál pod kopcem Štvanice v Jeseníkách. K dispozici je výletní zelený trail, který zvládne projet snad každý cyklista, dva skákavější traily červené barvy a několik černých enduro trailů. Více info: https://www.trailhunter.cz/bikepark-kralicak/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/8WOECXpsR5I</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.9087445,50.1772662,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Szczyrk</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=FAeqC8wCyDo"><img src="https://img.youtube.com/vi/FAeqC8wCyDo/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/FAeqC8wCyDo">https://www.youtube.com/embed/FAeqC8wCyDo</a><br><br>Bikepark v lyžařském středisku. Z kopce vedou dva hlavní traily - modrý flow a červený enduro. Ačkoli jsou jen dva, tratě jsou to dlouhé a zabaví i na celý den. K dispozici je i kus náročného černého trailu a nový skákavý trail se staví. ]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/FAeqC8wCyDo</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            18.9910732,49.6960535,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trailpark Bukovka</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=-iGz7K0TH5k"><img src="https://img.youtube.com/vi/-iGz7K0TH5k/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/-iGz7K0TH5k">https://www.youtube.com/embed/-iGz7K0TH5k</a><br><br>Nový bikepark s flowtrailem a enduro traily na velkém kopci s lanovkou + malý bikepark s vlekem. ]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/-iGz7K0TH5k</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.6997364,50.0145342,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Aldrov Vítkovice</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=c4-YWRJHwLY"><img src="https://img.youtube.com/vi/c4-YWRJHwLY/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/c4-YWRJHwLY">https://www.youtube.com/embed/c4-YWRJHwLY</a><br><br>Bikepark se dvěma nenáročnými traily a čtyřsedačkovou lanovkou. Více info: https://www.trailhunter.cz/bikepark-aldrov-vitkovice/]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/c4-YWRJHwLY</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            15.5221825,50.6835481,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sella ronda</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=1JyYrRFZyEA"><img src="https://img.youtube.com/vi/1JyYrRFZyEA/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/1JyYrRFZyEA">https://www.youtube.com/embed/1JyYrRFZyEA</a><br><br>Naše nástupní místo na okruh Sella ronda, kterém můžete znát z mého videa. Na okruh se dá ale samozřejmě nastoupit i kdekoli jinde.]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/1JyYrRFZyEA</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            11.7457211,46.4748983,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Canazei</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=oovPyaCYfKg"><img src="https://img.youtube.com/vi/oovPyaCYfKg/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/oovPyaCYfKg">https://www.youtube.com/embed/oovPyaCYfKg</a><br><br>Bikepark, který je součástí okruhu Sella Ronda, ale můžete se klidně zabavit jen tady. Více v mém videu: https://www.youtube.com/watch?v=oovPyaCYfKg]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/oovPyaCYfKg</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            11.7744585,46.4742038,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Innsbruck - Muttereralm</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=C5YViMV7BcU"><img src="https://img.youtube.com/vi/C5YViMV7BcU/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/C5YViMV7BcU">https://www.youtube.com/embed/C5YViMV7BcU</a><br><br>Bikepark u města Innsbruck s hooodně dlouhými traily.]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/C5YViMV7BcU</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            11.3666524,47.2222074,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Samerberg</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=hLhvAbBDd9c"><img src="https://img.youtube.com/vi/hLhvAbBDd9c/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/hLhvAbBDd9c">https://www.youtube.com/embed/hLhvAbBDd9c</a><br><br>Malý bikepark v Německu. Stavte se tu cestou do Tyrolska nebo Švýcarska ;)]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/hLhvAbBDd9c</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            12.2361855,47.7701105,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Saalbach</name>
+        <styleUrl>#icon-983-labelson-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            12.6349619,47.3904898,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Leogang</name>
+        <styleUrl>#icon-983-labelson-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            12.7190618,47.4391522,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3-Länder Enduro Trails</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=y5xwZV6aaNI"><img src="https://img.youtube.com/vi/y5xwZV6aaNI/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/y5xwZV6aaNI">https://www.youtube.com/embed/y5xwZV6aaNI</a><br><br>3-Länder Enduro Trails, Reschepass, ráj pro enduristy! ]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/y5xwZV6aaNI</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            10.5092796,46.8753611,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Serfaus Fiss Ladis</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=rnh95LnvbVQ"><img src="https://img.youtube.com/vi/rnh95LnvbVQ/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/rnh95LnvbVQ">https://www.youtube.com/embed/rnh95LnvbVQ</a><br><br>Serfaus Fiss Ladis]]></description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/rnh95LnvbVQ</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            10.6093228,47.0538207,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Bike Republik Sölden</name>
+        <styleUrl>#icon-983-labelson-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            11.0091957,46.9725618,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Deštné v Orlických horách</name>
+        <description>Nově budovaný bikepark, který začal postupně fungovat v sezoně 2023. Vývoj stavby tratí a otevíračku sledujte na Facebooku: https://www.facebook.com/destnecz</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            16.3604116,50.3002661,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Schladming</name>
+        <styleUrl>#icon-983-labelson-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            13.693576,47.3942481,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Semmering</name>
+        <styleUrl>#icon-983-labelson-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            15.8297683,47.6314752,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bike Aréna Zadov</name>
+        <description>Zpřístupněné enduro lajny. 4 tratě. Nahoru lanovkou. Info: https://www.lazadov.cz/la/leto-enduro.asp</description>
+        <styleUrl>#icon-983-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            13.6316464,49.067033,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Bikeparky s vlekem</name>
+      <Placemark>
+        <name>Bike park Drozdovo</name>
+        <description>Menší bikepark s vlekem a několika tratěmi. Info: http://drozdovo.eu/bike-park</description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            18.5530575,48.429175,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Košútka</name>
+        <description>Bikepark s velkým potenciálem a velkými překážkami. Více info: https://www.facebook.com/Absolute-bikepark-Ko%C5%A1%C3%BAtka-127914163951997/</description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            19.5329581,48.5614467,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wexl Trails</name>
+        <description>Trail park s hodně rozmanitou nabídkou trailů. https://www.wexltrails.at/</description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            16.020716,47.5785039,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Kareš</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=8cRf1LAaB-g"><img src="https://img.youtube.com/vi/8cRf1LAaB-g/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/8cRf1LAaB-g">https://www.youtube.com/embed/8cRf1LAaB-g</a><br><br>Bikepark v menším lyžařském středisku Kareš. Nahoru vás vytáhne vlek, dolů to můžete vzít lesem nebo si zalítat na lajně bohaté na skoky a klopenky.  Více info: https://www.trailhunter.cz/bikepark-kares/]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/8cRf1LAaB-g</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.1014857,50.0956282,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Polevsko</name>
+        <description>Nově budovaný bikepark na menším kopci s vlekem. Vypadá to nadějně. Budují se pestré traily od flowtrailu až po přírodní lajny ve stylu endura. Více info: https://polevsko.ski/bikepark/</description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            14.5334315,50.7885067,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Kálnica</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=xpCf9afGgX0"><img src="https://img.youtube.com/vi/xpCf9afGgX0/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/xpCf9afGgX0">https://www.youtube.com/embed/xpCf9afGgX0</a><br><br>Nejslavnější slovenský bikepark najdete jen kousek za českými hranicemi a rozhodně stojí za návštěvu. Obzvlášť, když na kole rádi skáčete. Ale i když se raději držíte s koly na zemi, tak si v Kálnici můžete na kole dobře zajezdit. INFO: https://www.trailhunter.cz/bikepark-kalnica/]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/xpCf9afGgX0</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.9373693,48.7546751,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Peklák</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=MOdvMt5fT4Y"><img src="https://img.youtube.com/vi/MOdvMt5fT4Y/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/MOdvMt5fT4Y">https://www.youtube.com/embed/MOdvMt5fT4Y</a><br><br>Bikepark vybudovaný u malého lyžařského areálu. Nabízí až překvapivě pestré vyžití na trailech různých náročností, délka kopce je ale bohužel jen necelý kilometr. Informace: www.peklak.cz]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/MOdvMt5fT4Y</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.4314431,49.9089045,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trail park Saporo</name>
+        <description>Menší trail park s přírpodnními enduro traily. Nahoru vás tady vytáhne poma, takže to chce nějaký ten skill na kole jak cestou dolu, tak i nahoru :-)  https://www.facebook.com/trailparkSaporo/</description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            12.4967668,50.3210924,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Hradiště</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=o5n3ZPLK9GM"><img src="https://img.youtube.com/vi/o5n3ZPLK9GM/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/o5n3ZPLK9GM">https://www.youtube.com/embed/o5n3ZPLK9GM</a><br><br>Menší bikepark s vlekem. Více informací na Facebooku: https://www.facebook.com/bikeparkhradiste/]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/o5n3ZPLK9GM</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            15.087537,49.035998,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Ahoj</name>
+        <description>Menší bikepark s vlekem. Šest tratí odstupňované náročnosti. Více informací: https://www.facebook.com/AHOJ-Bike-park-346531148880223/</description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            17.862327,48.5759086,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Heipark Tošovice</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=z3yqvn8ylU8"><img src="https://img.youtube.com/vi/z3yqvn8ylU8/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/z3yqvn8ylU8">https://www.youtube.com/embed/z3yqvn8ylU8</a><br><br>Nový bikepark v rámci areálu Heipark. Více info: https://www.trailhunter.cz/hei-bikepark-tosovice/]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/z3yqvn8ylU8</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.8392442,49.6939449,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Velhartice</name>
+        <description>Menší bikepark se třemi tratěmi. Vhodný pro zkušenější jezdce. https://bikevelhartice.cz/</description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            13.3838172,49.2580841,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletraily Hrubá voda</name>
+        <description>Nový bikepark, který ale neláká na náročné sjezdové tratě, ale na technicky nenáročné singletraily. Nahoru vás vytáhne vlek. https://resorthrubavoda.cz/singletraily/</description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            17.4383066,49.6689031,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Mladé buky</name>
+        <description>Areál Mladé buky nabízí při svém openingu v roce 2024 dvě tratě pro bikery - modré flow a skákací červenou. Nahoru vás vytáhne vlek.</description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            15.8452536,50.6012162,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Malá trailcentra a skill parky</name>
+      <Placemark>
+        <name>Singltrek Podhůra</name>
+        <description>Krátký singletrailový okruh vybudovaný podle vzoru Singltreku pod Smrkem. Je u něj i pumptrack a kratší skill okruh. Ideální místo na zaučení, zkušenější jezdce ale moc neuspokojí. Více informací: Podrobné informace: www.trailhunter.cz/singltrek-podhura/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            15.7817423,49.9188392,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zděchov</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=8O4fA2Lywv4"><img src="https://img.youtube.com/vi/8O4fA2Lywv4/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/8O4fA2Lywv4">https://www.youtube.com/embed/8O4fA2Lywv4</a><br><br>Menší singletrailová lokalita spadající pod Bike resort Valašsko. ]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/8O4fA2Lywv4</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            18.0720967,49.2606772,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletrail Frymburk</name>
+        <description>Nové a zatím jen malé singletrailové centrum s jednou červenou lajnou. Ale do budoucna velmi slibné! Dobře zabajkovat se dá i po okolních lesích: Více info: www.frbikes.cz/a/2617_singletrail-frymburk.html</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            14.173286,48.659661,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leskové</name>
+        <description>Menší lokalita spadající pod Bike Resort Valašsko. Zatím obsahuje jeden kratší červený a jeden modrý trail, vše je přitom propojeno lesními cestami a pěšinami.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            18.3862424,49.3768267,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletrail Letňany</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=raE6RDKyugs"><img src="https://img.youtube.com/vi/raE6RDKyugs/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/raE6RDKyugs">https://www.youtube.com/embed/raE6RDKyugs</a><br><br>Pozoruhodný pokus o městský singletrail. Na malém prostoru naklikacené čtyři stezky různých náročností v celkové délce 5,4 km. Více informací: https://www.trailhunter.cz/singletrail-letnany/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/raE6RDKyugs</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.5310712,50.1375251,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bike arena XC Anthropos</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=7PMUPTK-md8"><img src="https://img.youtube.com/vi/7PMUPTK-md8/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/7PMUPTK-md8">https://www.youtube.com/embed/7PMUPTK-md8</a><br><br>Trvale postavená trať pro XC závody je veřejně přístupná a nabízí zábavné svezení na horském kole téměř v centru Brna. Více info: https://www.trailhunter.cz/bikearena-anthropos/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/7PMUPTK-md8</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.5655603,49.1882987,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Traily Na Vinicích</name>
+        <description>Malé příměstké trailové centrum s velkým pumptrackem a několika traily s celkovou délkou 2,1 km. Cíleno je především na hobíky a děti. Na rychlost a adrenalin to tu není, ale techniku zde pilovat můžete. Více info: http://urad.vysoke-myto.cz/archiv-zprav/10599-vysokomytske-trailove-trate-na-vinicich-v-provozu</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            16.1910206,49.9580365,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bike Aréna Zlatnická dolina</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=YUBQiPeG5-I"><img src="https://img.youtube.com/vi/YUBQiPeG5-I/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/YUBQiPeG5-I">https://www.youtube.com/embed/YUBQiPeG5-I</a><br><br>Nové a zatím jen malé trailcentrum s jedním 4km XC okruhem, který je složen ze čtyř na sebe navazujících trailů. Více info: https://www.trailhunter.cz/zlatnicka-dolina/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/YUBQiPeG5-I</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.2998619,48.8255425,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Hradec Králové</name>
+        <description>Malý hobby bikepark tvořený komunitně svépomocí, ale legálně s posvěcením místní samosprávy. Více info: http://free-slow-riders.cz/?page_id=107</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            15.8317154,50.1790377,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Roudnička</name>
+        <description>Malý hobby bikepark tvořený komunitně svépomocí, ale legálně s posvěcením místní samosprávy. Více info: http://free-slow-riders.cz/?page_id=107</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            15.8202121,50.1646176,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Březovský trail</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=W2UIn78tIGY"><img src="https://img.youtube.com/vi/W2UIn78tIGY/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/W2UIn78tIGY">https://www.youtube.com/embed/W2UIn78tIGY</a><br><br>Menší trailová lokalita, ale překvapivě dost zábavy. Jedna stoupací cesta, tři traily různé náročnosti dolů. Všechny mají délku kolem jednoho kilometru. Více informací: https://www.trailhunter.cz/brezovsky-trail/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/W2UIn78tIGY</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.5163347,49.6502596,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cyklotratě Tulinka</name>
+        <description>Malá příměstská lokalita u Šumperka. Několik trailů pár set metrů dlouhých, ale kvalitně postavených. </description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            16.9778066,49.9789069,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Beskydské traily</name>
+        <description>Zatím jen první trailových okruh s délkou necelých 3 km, ale chystají se další. Do budoucna lokalita s velkým potenciálem. Více informací: https://www.beskydsketraily.cz/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            18.1929302,49.5375869,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lesopark U Vodojemu</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3APLA8iD9UuKkKrHYz3RNektG6aFOsS-8HtOinmE1GuChON8Xqi1pXGhzGgkWNsKZquo1Vzrq09bOlsq9T25H1u-iWE9AC9kNogtOl5pcbEy5l6XkDZR8p8ZcACBeGUQQzKdKHhykl8dLKOUZLH5fUmKIPnB_aP-W0GJiagoYs_cr4tnw5yTbWqB1MRcAAO_B3On6431bsUQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Malá městská lokalita na vyblbnutí nejen s kolem. Součástí je nenáročný trail, který se klikatí napříč oblastí, a k dispozici je i klasický pumptrack. Více info: http://www.mestokyjov.cz/lesopark-u-vodojemu/d-25787]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3APLA8iD9UuKkKrHYz3RNektG6aFOsS-8HtOinmE1GuChON8Xqi1pXGhzGgkWNsKZquo1Vzrq09bOlsq9T25H1u-iWE9AC9kNogtOl5pcbEy5l6XkDZR8p8ZcACBeGUQQzKdKHhykl8dLKOUZLH5fUmKIPnB_aP-W0GJiagoYs_cr4tnw5yTbWqB1MRcAAO_B3On6431bsUQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.1389147,49.0144185,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Vlčka</name>
+        <description>Menší bikepark, ale aktivně udržovaný a průběžně vylepšovaný. Ideální místo na trénink. Více informací: https://www.facebook.com/vlckabikepark</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            15.9184729,50.5521831,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cyklopark Mysločovice</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=9t9dA96oZNo"><img src="https://img.youtube.com/vi/9t9dA96oZNo/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/9t9dA96oZNo">https://www.youtube.com/embed/9t9dA96oZNo</a><br><br>Přibližně 2 km trailu v lesíku na okraji obce Mysločovice. Trail je značený, udržovaný a doplněný o zábavné prvky. ]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/9t9dA96oZNo</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.5672939,49.251339,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletraily Telč</name>
+        <description>Malý příměstský singletrailový areál nabídne 3 km trailů pro začínající až středně pokročilé jezdce. Více informací: https://www.trailhunter.cz/singletraily-telc-2020/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            15.4213309,49.2002262,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trail U Jericha</name>
+        <description>Velmi malá, ale zábavná lokalita. https://cs-cz.facebook.com/Trail-U-Jericha-592371997557857/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            17.5706577,49.0223358,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Traily Vratislavice</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=nQ1CV0VA2uo"><img src="https://img.youtube.com/vi/nQ1CV0VA2uo/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/nQ1CV0VA2uo">https://www.youtube.com/embed/nQ1CV0VA2uo</a><br><br>Velký pumptrack a několik kratších sjezdových singletrailů odstpuňovaných podle náročnosti od snadného až po skákavý. Ideální místo na trénink bikerských dovedností. ]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/nQ1CV0VA2uo</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            15.0900079,50.7454743,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bike Arena Netro</name>
+        <description>Spousta skoků, ale i kratší flowtraily s klopenkami přímo v Brně! To je Netro. Původně nadšenecká lokalita, která se stala oficiálním místem, kde se dá v Brně zablbnout na horském kole. Pozor, lokace není vhodná pro úplné začátečníky. </description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            16.5689999,49.1824392,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singltrek Pintovka</name>
+        <description>Přibližně 1,5 km stezek ve stylu Singltreku pod Smrkem. Vhodné na zaučení dětí nebo jako krátké zpestření cyklovyjížďky. Více info: https://pintovka.singltrek.cz/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            14.6516814,49.4047493,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Jahodnice</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=zzf76pIy3vc"><img src="https://img.youtube.com/vi/zzf76pIy3vc/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/zzf76pIy3vc">https://www.youtube.com/embed/zzf76pIy3vc</a><br><br>Pumptrack, dráha se skoky, skill centrum... prostě dobrý tréninkový plácek. ]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/zzf76pIy3vc</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.5512243,50.0873593,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Olomouc</name>
+        <description>Prostor pro vyblbnutí na kole a trénink skoků. </description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            17.2425061,49.557754,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hanácké stezky - bikepark Záhoří</name>
+        <description>Menší trailové centrum, které nabídne tři traily s odstupňovanou obtížností a celkovou délkou 4 km. Více info: https://www.hanackestezky.cz/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            17.0462941,49.4634971,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bike Park Roztoky </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3APLA8iDD0SV0ApF3A04XUqZmqnWev0nwTVycIUEtWLQaD4DnVSR9Pm_7NX8XGYp9iPRcLjUIH08NoiSVmShLEioevc7h6gapwFJy71GMbaU8eY9STR4nx_YOiqopVPxFizeOVm9Cw8qvqis79XYylq6S3F1QY3UHUpXH_rkAid8pYADJncjtst9sMtcZgLn990oeyeVWW6OY?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Skill centrum se skoky a pumptrackem. Více info: https://www.facebook.com/Bike-Park-Roztoky-109695154537000]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3APLA8iDD0SV0ApF3A04XUqZmqnWev0nwTVycIUEtWLQaD4DnVSR9Pm_7NX8XGYp9iPRcLjUIH08NoiSVmShLEioevc7h6gapwFJy71GMbaU8eY9STR4nx_YOiqopVPxFizeOVm9Cw8qvqis79XYylq6S3F1QY3UHUpXH_rkAid8pYADJncjtst9sMtcZgLn990oeyeVWW6OY?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            14.4006511,50.1644427,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Slavex trails</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=2skT0bpIPyM"><img src="https://img.youtube.com/vi/2skT0bpIPyM/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/2skT0bpIPyM">https://www.youtube.com/embed/2skT0bpIPyM</a><br><br>Menší lokalita na vyblbnutí a zaučení jízdy na trailech. Dva traily, flow i skoky. Více info: https://www.slavextrails.cz/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/2skT0bpIPyM</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            17.8987235,49.0655067,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rychvald Bike Park</name>
+        <description>Lokalita zaměřená na freeride, dirtjump a fourcross. Malý prostor, ale spousta skoků! </description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            18.3730533,49.8455503,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Trailpark Slapy</name>
+        <description>Nová lokalita. Zatím nepříliš dlouhé svezení, ale do budoucna by se měla síť trailů rozšiřovat. Více info: https://slapskykulturnispolek.cz/trailpark/</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            14.4003297,49.8242186,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Boží trail</name>
+        <description><![CDATA[<a href="https://www.youtube.com/watch?v=ypXTPbZMfOw"><img src="https://img.youtube.com/vi/ypXTPbZMfOw/hqdefault.jpg" height="200" width="auto" /></a><br><br><a href="https://www.youtube.com/embed/ypXTPbZMfOw">https://www.youtube.com/embed/ypXTPbZMfOw</a><br><br>Jeden trail, ale spousta zábavy. Zřejmě nejstarší oficiální trail v Česku, bývalá fourcrossová trať a místo, kde se psaly dějiny českého MTB. Více info: https://www.trailhunter.cz/bozi-trail/]]></description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value>https://www.youtube.com/embed/ypXTPbZMfOw</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            12.9320568,50.4059223,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Berounka Trails</name>
+        <description>Malá singletrailová lokalita se dvěma nenáročnými lesními traily a několika navazujícími cyklotrasami. Bod na mapě vyznačuje nástupní místo s parkovištěm, přímo na kole se k trailům dostanete rychleji z Újezdu u Svatého Kříže. </description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            13.5263797,49.8331316,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikecentrum Smrčiny</name>
+        <description>Nově vznikající bikecentrum nabídne už několik trailů a malý přírodní skill park. Více info: https://www.facebook.com/profile.php?id=100089097101073 </description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            12.2040186,50.2305516,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bike Centrum Zbraslav</name>
+        <description>Dva krátké traily, pár skoků a pumptrack na trénování. Idální místo na zábavné blbnutí a trénink s horským kolem. </description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            14.3891606,49.9630791,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Singletrail v Mostech u Jablunkova</name>
+        <description>Jednoduchý trailový okruh s délkou 2,3 km vhodný pro zpestření cyklovyjížďky nebo na výlet s dětmi. Info:  https://www.gotic.cz/cs/cykloturistika/2860-singletrail-v-mostech-u-jablunkova</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            18.7430655,49.5292644,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Traily Velké Karlovice</name>
+        <description>Kdysi tu býval bikepark Kyčerka, teď tu jsou alespoň traily, na které si musíte vyšlápnout sami. Info: https://www.facebook.com/trailyvelkekarlovice</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            18.2885007,49.3562169,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Skalice Trails</name>
+        <description>2 km přírodních upravených tratí různých náročností a pumptrack. https://www.facebook.com/profile.php?id=100093374543256</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            16.0461978,50.3901222,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>GOEtrail</name>
+        <description>Trail z Goethovy vyhlídky, který je plný klopenek, skoků a alternativných průjezdů. </description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            12.9037439,50.2242715,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Traily Hořice</name>
+        <description>Dva singletrailové okruhy, i nějaké to skákání - výstavba 2024. Info: https://www.horice.org/traily-horice-zahajeni-stavebnich-praci/d-22898</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            15.6407793,50.3783445,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Traily Plzeň</name>
+        <description>Dva traily nad Seneckým rybníkem. Modrý a červený, oba s vyhlazeným povrchem. </description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <Point>
+          <coordinates>
+            13.4057633,49.7891194,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Ve vývoji nebo v rekonstrukci</name>
+      <Placemark>
+        <name>Telnické MTB stezky</name>
+        <description>Zatím oficiálně neposvěcený projekt, který se ale snaží projít procesem legalizace a stát se oficiální bikovou lokalitou. Více informací na Facebooku: https://www.facebook.com/Telnick%C3%A9-MTB-stezky-790650051054955/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            13.9544499,50.7126292,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ostravský Singltrail</name>
+        <description>Nadšenci budovaná příměstská trailová lokalita, která vychází z původních přírodních stezek. V současné době dosti zanedbaná. Pokusy o legalizaci nebyly úspěšné. Více info: https://www.facebook.com/Ostravsk%C3%BD-Singletrail-1457853154449128/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            18.2022858,49.8634951,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Javornické okruhy</name>
+        <description>Čistě přírodní neznačené trasy vedoucí po pěšinách, ale i lesních cestách. Není to oficiální trailcentrum, ale trasy jsou dobře natrasované a udržované. K dispozici jsou lehké výletní okruhy, ale i trasy s prvky endura. Info: www.javornickeokruhy.cz</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            13.6624432,49.1392563,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Čertovy stezky</name>
+        <description>Mladé trailcentrum s velkými ambicemi. Zatím nabízí svezení jen na jednom trailu, ale budoucnost vypadá nadějně. Info: http://www.certovystezky.cz/</description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            17.9997253,49.5675743,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bikepark Pískovna</name>
+        <description>Velké skoky na malém kopci. Nově budovaný menší bikepark s pestrou sadou překážek, ideální k tréninku. </description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            14.5560575,50.6768782,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Špindl Bike Park</name>
+        <description>Bikepark je UZAVŘEN!!! Stále ho ale nechávám na mapě, protože věřím, že se ho podaří oživit a znovu otevřít. </description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            15.6125808,50.7204684,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hejnice</name>
+        <description>Dva sjezdové traily, modrý a červený, celková délka 2 km. Nahoru za své. </description>
+        <styleUrl>#icon-960-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            16.8251645,49.8636272,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

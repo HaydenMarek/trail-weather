@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>trail_weather_data_loader</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>b60ce72b-1dda-4b75-9026-851a1875c339</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0" />
+    <PackageReference Include="SharpKml.Core" Version="6.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="trail-weather-data-access">
+      <HintPath>..\..\trail-weather-backend\trail-weather-data-access\bin\Debug\net9.0\trail-weather-data-access.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
