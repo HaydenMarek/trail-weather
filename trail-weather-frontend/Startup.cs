@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Net.Http;
 using trail_weather_frontend.Services;
 
 namespace trail_weather_frontend
@@ -23,13 +24,14 @@ namespace trail_weather_frontend
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();           
-            services.AddTransient<IApiCaller, ApiCaller>();
-            services.AddHttpClient<IApiCaller, ApiCaller>(client =>
+            //services.AddTransient<ITrailWeatherApiCaller, TrailWeatherApiCaller>();
+
+            services.AddHttpClient<ITrailWeatherApiCaller, TrailWeatherApiCaller>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:7168/WeatherForecast/");
-                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");                
             });
-            services.AddGeolocationServices();
+            services.AddGeolocationServices();           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

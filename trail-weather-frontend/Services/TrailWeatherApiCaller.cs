@@ -6,18 +6,17 @@ using trail_weather_frontend.DTOs;
 
 namespace trail_weather_frontend.Services
 {
-    public class ApiCaller : IApiCaller
+    public class TrailWeatherApiCaller : ITrailWeatherApiCaller
     {
         private readonly HttpClient _httpClient;
 
-        public ApiCaller(HttpClient httpClient)
+        public TrailWeatherApiCaller(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
         public async Task<List<ForecastDTO>> GetTrailWeather(int range, double lat, double lon)
-        {
-            _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+        {            
             return await _httpClient.GetFromJsonAsync<List<ForecastDTO>>($"{range}, {lat}, {lon}");
         }
     }

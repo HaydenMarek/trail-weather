@@ -4,7 +4,7 @@ using trail_weather_frontend.DTOs;
 
 namespace trail_weather_frontend.Services
 {
-    public interface IApiCaller
+    public interface ITrailWeatherApiCaller
     {
         Task<List<ForecastDTO>> GetTrailWeather(int range, double lat, double lon);
     }
