@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>trail_weather_frontend</RootNamespace>
+    <UserSecretsId>d6ad081c-06f1-4b04-8f51-591fe4ff0ba8</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\WeatherIcons\" />
