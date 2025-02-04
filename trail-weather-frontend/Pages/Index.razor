@@ -2,8 +2,10 @@
 @using trail_weather_frontend.Services
 @using trail_weather_frontend.DTOs
 @using System.IO
+@using System.Text.Json
 @inject IApiCaller _caller
 @inject IGeolocationService _geolocationService
+@inject HttpClient Http
 
 <h3>TrailWeather</h3>
 
@@ -21,11 +23,30 @@
     else 
     {
         <span style="margin-left: 10px;">
-            Your current location is unknown.
+            Your current location is unknown. 
         </span>
     }
-
+    Manual Search: <input type="text" id="manualSearch" @bind="@SearchQuery" @onkeyup="ManualSearch_HandleKeyUp" placeholder="Start typing..." />
 </div>
+
+@if (Suggestions.Any())
+{
+    <ul class="list-group">
+        @foreach (var suggestion in Suggestions)
+        {
+            <li class="list-group-item" @onclick="() => SelectSuggestion(suggestion)">
+                @suggestion.display_name
+            </li>
+        }
+    </ul>
+}
+
+@if (!string.IsNullOrEmpty(SelectedAddress))
+{
+    <p><strong>Selected Address:</strong> @SelectedAddress</p>
+    <p><strong>Latitude:</strong> @Latitude</p>
+    <p><strong>Longitude:</strong> @Longitude</p>
+}
 
 @if (forecasts != null)
 {
@@ -70,6 +91,11 @@
     private List<ForecastDTO> forecasts;
     private int range;
     private GeolocationPosition? position;
+    private string SearchQuery { get; set; } = string.Empty;
+    private List<NominatimResult> Suggestions { get; set; } = new();
+    private string SelectedAddress { get; set; } = string.Empty;
+    private string Latitude { get; set; }
+    private string Longitude { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -103,6 +129,58 @@
     {
         if (e.Key == "Enter")        
             await GetTrailWeather();
+    }
+
+    private async Task ManualSearch_HandleKeyUp(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        { 
+            
+            if (!string.IsNullOrWhiteSpace(SearchQuery) && SearchQuery.Length > 1)
+            {
+                Suggestions = await FetchAutocompleteResults(SearchQuery);
+            }
+            else
+            {
+                Suggestions.Clear();
+            }
+        }
+    }
+
+    private async Task<List<NominatimResult>> FetchAutocompleteResults(string query)
+    {
+        var url = $"https://nominatim.openstreetmap.org/search?format=json&q={Uri.EscapeDataString(query)}";
+        // return await Http.GetFromJsonAsync<List<NominatimResult>>(url) ?? new();
+        var result = await Http.GetAsync(url).Result.Content.ReadAsStringAsync();
+        var deserializedResult = JsonSerializer.Deserialize<List<NominatimResult>>(result);
+        return JsonSerializer.Deserialize<List<NominatimResult>>(result) ?? new();
+    }
+
+    private void SelectSuggestion(NominatimResult suggestion)
+    {
+        SelectedAddress = suggestion.display_name;
+        Latitude = suggestion.lat;
+        Longitude = suggestion.lon;
+        SearchQuery = suggestion.display_name;
+        Suggestions.Clear();
+    }
+
+    private class NominatimResult
+    {
+        public long PlaceId { get; set; }
+        public string Licence { get; set; }
+        public string OsmType { get; set; }
+        public long OsmId { get; set; }
+        public string lat { get; set; }
+        public string lon { get; set; }
+        public string Class { get; set; }
+        public string Type { get; set; }
+        public int PlaceRank { get; set; }
+        public double Importance { get; set; }
+        public string AddressType { get; set; }
+        public string Name { get; set; }
+        public string display_name { get; set; }
+        public List<double> BoundingBox { get; set; }
     }
 
     [JSInvokable]
