@@ -11,22 +11,10 @@
 <h3>TrailWeather</h3>
 
 <div>        
-    <input type="text" @bind=searchText @oninput="ManualSearch_HandleKeyUp" placeholder="Type custom location..." />
-    @if (selectedLocation != null)
-    {
-        <span>
-            Location: @selectedLocation.Lat.ToString("F2") @selectedLocation.Lon.ToString("F2") @selectedLocation.Address
-        </span>
-    }
-    else 
-    {
-        <span>
-            Location: Unknown. 
-        </span>
-    }           
+    <input type="text" @bind=searchText @oninput="ManualSearch_HandleKeyUp" style="border: none; width: 100%;" placeholder="Select location ..."/>       
     <br />
     <label for="rangeInput">Range (km):</label>
-    <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp">
+    <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp" style="width: 50px">
     <button class="btn-primary" @onclick="GetTrailWeather">Get Weather</button>
 </div>
 
@@ -149,12 +137,9 @@
 
     private void SelectSuggestion(NominatimResult suggestion)
     {
-        selectedLocation.Address = suggestion.display_name;
-        selectedLocation.Lat = double.Parse(suggestion.lat);
-        selectedLocation.Lon = double.Parse(suggestion.lon);
-        forecasts = new List<ForecastDTO>();
-        searchText = string.Empty;
+        searchText = $"{suggestion.display_name} {double.Parse(suggestion.lat)} {double.Parse(suggestion.lon)}";                        
         suggestions.Clear();        
+        forecasts = new List<ForecastDTO>();
     }
 
     private class NominatimResult
