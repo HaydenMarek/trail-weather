@@ -137,7 +137,9 @@
 
     private void SelectSuggestion(NominatimResult suggestion)
     {
-        searchText = $"{suggestion.display_name} {double.Parse(suggestion.lat)} {double.Parse(suggestion.lon)}";                        
+        searchText = $"{suggestion.display_name} {double.Parse(suggestion.lat)} {double.Parse(suggestion.lon)}";
+        selectedLocation.Lat = double.Parse(suggestion.lat);
+        selectedLocation.Lon = double.Parse(suggestion.lon);
         suggestions.Clear();        
         forecasts = new List<ForecastDTO>();
     }
