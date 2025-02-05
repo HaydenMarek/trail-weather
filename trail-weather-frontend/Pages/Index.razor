@@ -10,31 +10,30 @@
 
 <h3>TrailWeather</h3>
 
-<div>
-    <label for="rangeInput">Range (km):</label>
-    <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp">
-    <button class="btn-primary" @onclick="GetTrailWeather">Get Weather</button>
-    <br />
-    @if (position != null)
+<div>        
+    <input type="text" @bind=searchText @oninput="ManualSearch_HandleKeyUp" placeholder="Type custom location..." />
+    @if (selectedLocation != null)
     {
         <span>
-            Your current location: Latitude: @position.Coords.Latitude, Longitude: @position.Coords.Longitude
+            Location: @selectedLocation.Lat.ToString("F2") @selectedLocation.Lon.ToString("F2") @selectedLocation.Address
         </span>
     }
     else 
     {
         <span>
-            Your current location is unknown. 
+            Location: Unknown. 
         </span>
-    }
-    <br />    
-    Manual search: <input type="text" id="manualSearch" @oninput="ManualSearch_HandleKeyUp" placeholder="Start typing..." />       
+    }           
+    <br />
+    <label for="rangeInput">Range (km):</label>
+    <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp">
+    <button class="btn-primary" @onclick="GetTrailWeather">Get Weather</button>
 </div>
 
-@if (Suggestions.Any())
+@if (suggestions.Any())
 {
     <ul class="list-group">
-        @foreach (var suggestion in Suggestions)
+        @foreach (var suggestion in suggestions)
         {
             <li class="list-group-item" @onclick="() => SelectSuggestion(suggestion)">
                 @suggestion.display_name
@@ -84,21 +83,18 @@
 
 @code {
     private List<ForecastDTO> forecasts;
-    private int range;
-    private GeolocationPosition? position;    
-    private List<NominatimResult> Suggestions { get; set; } = new();
-    private string SelectedAddress { get; set; } = string.Empty;
-    private string Latitude { get; set; }
-    private string Longitude { get; set; }   
-    private string SearchText { get; set; } = string.Empty;
-    private Timer timer = new(1000);
+    private int range;        
+    private List<NominatimResult> suggestions { get; set; } = new();
+    private GeoCoordinateDTO selectedLocation { get; set; } = new();
+    private string searchText { get; set; } = string.Empty;
+    private Timer timer = new(300);
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await _geolocationService.GetCurrentPositionAsync(OnSuccess, OnError);            
-            timer.Elapsed += async (sender, e) => await FetchAutocompleteResults(SearchText);             
+            timer.Elapsed += async (sender, e) => await FetchAutocompleteResults(searchText);             
         }            
     }
 
@@ -115,7 +111,7 @@
     {                
         try
         {            
-            forecasts = await _caller.GetTrailWeather(range, position.Coords.Latitude, position.Coords.Longitude);
+            forecasts = await _caller.GetTrailWeather(range, selectedLocation.Lat, selectedLocation.Lon);
         }
         catch (HttpRequestException ex)
         {
@@ -132,9 +128,9 @@
 
     private void ManualSearch_HandleKeyUp(ChangeEventArgs e)
     {
-        SearchText = e.Value.ToString();
-        Suggestions.Clear();
-        if (SearchText.Count() > 2) 
+        searchText = e.Value.ToString();
+        suggestions.Clear();
+        if (searchText.Count() > 2) 
         {
             timer.Enabled = true;
             timer.Start();
@@ -144,20 +140,21 @@
     private async Task FetchAutocompleteResults(string query)
     {
         timer.Stop();
-        var url = $"https://nominatim.openstreetmap.org/search?format=json&q={Uri.EscapeDataString(query)}";
-        // return await Http.GetFromJsonAsync<List<NominatimResult>>(url) ?? new();
+        var url = $"https://nominatim.openstreetmap.org/search?format=json&q={Uri.EscapeDataString(query)}";        
         var result = await Http.GetAsync(url).Result.Content.ReadAsStringAsync();
         var deserializedResult = JsonSerializer.Deserialize<List<NominatimResult>>(result);
-        Suggestions = JsonSerializer.Deserialize<List<NominatimResult>>(result) ?? new();
+        suggestions = JsonSerializer.Deserialize<List<NominatimResult>>(result) ?? new();
         await InvokeAsync(StateHasChanged);
     }
 
     private void SelectSuggestion(NominatimResult suggestion)
     {
-        SelectedAddress = suggestion.display_name;
-        Latitude = suggestion.lat;
-        Longitude = suggestion.lon;        
-        Suggestions.Clear();
+        selectedLocation.Address = suggestion.display_name;
+        selectedLocation.Lat = double.Parse(suggestion.lat);
+        selectedLocation.Lon = double.Parse(suggestion.lon);
+        forecasts = new List<ForecastDTO>();
+        searchText = string.Empty;
+        suggestions.Clear();        
     }
 
     private class NominatimResult
@@ -180,15 +177,15 @@
 
     [JSInvokable]
     public void OnSuccess(GeolocationPosition pos)
-    {
-        position = pos;
+    {        
+        selectedLocation.Lat = pos.Coords.Latitude;
+        selectedLocation.Lon = pos.Coords.Longitude;
         StateHasChanged();
     }
 
     [JSInvokable]
     public void OnError(GeolocationPositionError error)
-    {
-        // Handle error
+    {        
         Console.WriteLine($"Error: {error.Message}");
     }
 }
