@@ -11,7 +11,8 @@
 <h3>TrailWeather</h3>
 
 <div>        
-    <input type="text" @bind=searchText @oninput="ManualSearch_HandleKeyUp" style="border: none; width: 100%;" placeholder="Select location ..."/>       
+    <label for="locationInput">Location:</label>
+    <input type="text" id="locationInput" @bind=searchText @oninput="ManualSearch_HandleKeyUp" @onclick="ClearAndSuggest_OnClick" style="border: thin; width:80%" placeholder="Start typing ..."/>
     <br />
     <label for="rangeInput">Range (km):</label>
     <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp" style="width: 50px">
@@ -125,6 +126,10 @@
         }                                               
     }
 
+    private void ClearAndSuggest_OnClick(MouseEventArgs e){
+        searchText = string.Empty;
+    }
+
     private async Task FetchAutocompleteResults(string query)
     {
         timer.Stop();
@@ -135,11 +140,44 @@
         await InvokeAsync(StateHasChanged);
     }
 
-    private void SelectSuggestion(NominatimResult suggestion)
+    private async Task<GeoCoordinateDTO> GetLocationDetailsAsync(double latitude, double longitude)
     {
-        searchText = $"{suggestion.display_name} {double.Parse(suggestion.lat)} {double.Parse(suggestion.lon)}";
+        var query = $"/reverse.php?lat={latitude}&lon={longitude}&zoom=18&layer=address&format=jsonv2";
+        var url = $"https://nominatim.openstreetmap.org{query}";
+
+        HttpResponseMessage response = null;
+        try
+        {
+            response = await Http.GetAsync(url);
+        }
+        catch (Exception ex)
+        {
+            Console.Write(ex.Message);
+        }
+        if (response.IsSuccessStatusCode)
+        {
+            var locationDetailsJson = await response.Content.ReadAsStringAsync();
+            var locationDetails = JsonSerializer.Deserialize<NominatimLocationDetailsDTO>(locationDetailsJson);
+            return new GeoCoordinateDTO 
+            { 
+                Lat = double.Parse(locationDetails.lat),
+                Lon = double.Parse(locationDetails.lon),
+                Address = locationDetails.display_name
+            };
+        }
+        else
+        {
+            Console.WriteLine($"Failed to fetch location details: {response.ReasonPhrase}");
+            return null;
+        }
+    }
+
+    private void SelectSuggestion(NominatimResult suggestion)
+    {        
         selectedLocation.Lat = double.Parse(suggestion.lat);
         selectedLocation.Lon = double.Parse(suggestion.lon);
+        selectedLocation.Address = suggestion.display_name;
+        searchText = $"{selectedLocation.Address}";
         suggestions.Clear();        
         forecasts = new List<ForecastDTO>();
     }
@@ -163,10 +201,13 @@
     }
 
     [JSInvokable]
-    public void OnSuccess(GeolocationPosition pos)
+    public async void OnSuccess(GeolocationPosition pos)
     {        
         selectedLocation.Lat = pos.Coords.Latitude;
         selectedLocation.Lon = pos.Coords.Longitude;
+        var details = await GetLocationDetailsAsync(selectedLocation.Lat, selectedLocation.Lon);
+        selectedLocation.Address = details.Address;
+        searchText = $"{selectedLocation.Address}";
         StateHasChanged();
     }
 
