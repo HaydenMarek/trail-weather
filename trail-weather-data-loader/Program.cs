@@ -8,12 +8,17 @@ using trail_weather_data_access.Models;
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 
 var secretProvider = config.Providers.First();
-secretProvider.TryGet("ConnectionString", out var secretPass);
+
+string? secretPass = Environment.GetEnvironmentVariable("ConnectionStrings_DefaultConnection");
+
+if (secretPass is null)
+    secretProvider.TryGet("ConnectionString", out secretPass);
 
 if (secretPass is null)
     throw new ArgumentNullException("Connection string is empty", secretPass);
+
 string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
-string kmlFilePath = Path.Combine(projectDirectory, "TRAIL HUNTER.kml");
+string kmlFilePath = "/var/www/dataloader/TRAIL_HUNTER.kml";
 string kmlFileContents = "";
 try
 {
@@ -21,7 +26,7 @@ try
 }
 catch (IOException e)
 {
-    Console.WriteLine($"An error occurred: {e.Message}");
+    Console.WriteLine($"An error occurred: {e.Message}, {kmlFilePath}");
     return;
 }
 

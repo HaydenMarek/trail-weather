@@ -7,7 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 
 var secretProvider = config.Providers.First();
-secretProvider.TryGet("ConnectionString", out var secretPass);
+string? secretPass = Environment.GetEnvironmentVariable("ConnectionStrings_DefaultConnection");
+
+if (secretPass is null)
+    secretProvider.TryGet("ConnectionString", out secretPass);
 
 if (secretPass is null)
     throw new ArgumentNullException("Connection string is empty", secretPass);
@@ -35,8 +38,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

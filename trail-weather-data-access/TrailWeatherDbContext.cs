@@ -31,7 +31,7 @@ namespace trail_weather_data_access
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_connectionString);
+            optionsBuilder.UseMySQL(_connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

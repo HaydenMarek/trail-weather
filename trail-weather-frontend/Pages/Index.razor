@@ -89,11 +89,14 @@
 
     private string GetImageSourcePath(int weatherCode)
     {   
-        string weatherCodeFolderPath = Path.Combine("wwwroot", "WeatherIcons");
+        string weatherCodeFolderPath = Path.Combine("/var/www/html/wwwroot", "WeatherIcons/");
+        Console.WriteLine($"Fetching image for weather code with path: {weatherCodeFolderPath}");
+        
         var weatherCodeFiles = Directory.GetFiles(weatherCodeFolderPath).ToList();
-        var matchedFile = weatherCodeFiles.Where(weatherCodeFiles => weatherCodeFiles.Contains("\\" + weatherCode.ToString() + "_")).Single().Substring(21);
+        var matchedFile = weatherCodeFiles.Where(weatherCodeFiles => weatherCodeFiles.Contains("/" + weatherCode.ToString() + "_")).Single().Substring(21);
 
-        return $"WeatherIcons/{matchedFile}";
+        Console.WriteLine($"Matched file: {matchedFile}");
+        return $"{matchedFile}";
     }
 
     private async Task GetTrailWeather()
