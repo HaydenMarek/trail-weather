@@ -39,6 +39,7 @@ namespace trail_weather_frontend
                     BaseAddress = new Uri("https://nominatim.openstreetmap.org/"),
                     DefaultRequestHeaders = { { "Accept", "application/json" }, { "User-Agent", "TrailWeatherApp" } }
                 });
+            services.AddBlazorBootstrap();
 
         }
 

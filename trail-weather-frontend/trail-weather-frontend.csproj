@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>trail_weather_frontend</RootNamespace>
@@ -38,6 +38,7 @@
     <None Include="wwwroot\WeatherIcons\99_thunderstorm-with-hail%404x.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Blazor.Bootstrap" Version="3.3.1" />
     <PackageReference Include="Blazor.Geolocation" Version="9.0.1" />
   </ItemGroup>
 </Project>
