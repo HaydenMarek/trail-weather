@@ -163,8 +163,8 @@
             var locationDetails = JsonSerializer.Deserialize<NominatimLocationDetailsDTO>(locationDetailsJson);
             return new GeoCoordinateDTO 
             { 
-                Lat = double.Parse(locationDetails.lat),
-                Lon = double.Parse(locationDetails.lon),
+                Lat = locationDetails.lat,
+                Lon = locationDetails.lon,
                 Address = locationDetails.display_name
             };
         }
