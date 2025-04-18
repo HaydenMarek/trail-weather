@@ -163,8 +163,8 @@
             var locationDetails = JsonSerializer.Deserialize<NominatimLocationDetailsDTO>(locationDetailsJson);
             return new GeoCoordinateDTO 
             { 
-                Lat = locationDetails.lat,
-                Lon = locationDetails.lon,
+                Lat = Double.Parse(locationDetails.lat),
+                Lon = Double.Parse(locationDetails.lon),
                 Address = locationDetails.display_name
             };
         }
@@ -177,8 +177,8 @@
 
     private void SelectSuggestion(NominatimResult suggestion)
     {        
-        selectedLocation.Lat = suggestion.lat;
-        selectedLocation.Lon = suggestion.lon;
+        selectedLocation.Lat = Double.Parse(suggestion.lat);
+        selectedLocation.Lon = Double.Parse(suggestion.lon);
         selectedLocation.Address = suggestion.display_name;
         searchText = $"{selectedLocation.Address}";
         suggestions.Clear();        
@@ -191,8 +191,8 @@
         public string Licence { get; set; }
         public string OsmType { get; set; }
         public long OsmId { get; set; }
-        public double lat { get; set; }
-        public double lon { get; set; }
+        public string lat { get; set; }
+        public string lon { get; set; }
         public string Class { get; set; }
         public string Type { get; set; }
         public int PlaceRank { get; set; }
