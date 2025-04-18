@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using trail_weather_data_access.Enums;
 using trail_weather_data_access.Models;
 
 namespace trail_weather_data_access
@@ -7,22 +8,12 @@ namespace trail_weather_data_access
     public class TrailWeatherDbContext : DbContext
     {
         private readonly string _connectionString;
-        public TrailWeatherDbContext()
-        {
-            var config = new ConfigurationBuilder().AddUserSecrets<TrailWeatherDbContext>().Build();
+        private readonly DbProviders _dbProvider;        
 
-            var secretProvider = config.Providers.First();
-            secretProvider.TryGet("ConnectionString", out var secretPass);
-
-            if (secretPass is null)
-                throw new ArgumentNullException("Connection string is empty", secretPass);
-
-            _connectionString = secretPass;
-        }
-
-        public TrailWeatherDbContext(string connectionString)
+        public TrailWeatherDbContext(string connectionString, DbProviders dbProvider = DbProviders.MySql)
         {
             _connectionString = connectionString;
+            _dbProvider = dbProvider;
         }
 
         public DbSet<SportCenter> SportCenter { get; set; }
@@ -31,7 +22,14 @@ namespace trail_weather_data_access
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL(_connectionString);
+            if (_dbProvider == DbProviders.SqlServer)
+            {
+                optionsBuilder.UseSqlServer(_connectionString);
+            }
+            else
+            {
+                optionsBuilder.UseMySQL(_connectionString);
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
