@@ -177,8 +177,8 @@
 
     private void SelectSuggestion(NominatimResult suggestion)
     {        
-        selectedLocation.Lat = double.Parse(suggestion.lat);
-        selectedLocation.Lon = double.Parse(suggestion.lon);
+        selectedLocation.Lat = suggestion.lat;
+        selectedLocation.Lon = suggestion.lon;
         selectedLocation.Address = suggestion.display_name;
         searchText = $"{selectedLocation.Address}";
         suggestions.Clear();        
@@ -191,8 +191,8 @@
         public string Licence { get; set; }
         public string OsmType { get; set; }
         public long OsmId { get; set; }
-        public string lat { get; set; }
-        public string lon { get; set; }
+        public double lat { get; set; }
+        public double lon { get; set; }
         public string Class { get; set; }
         public string Type { get; set; }
         public int PlaceRank { get; set; }
