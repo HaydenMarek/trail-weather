@@ -4,6 +4,7 @@
 @using System.IO
 @using System.Text.Json
 @using System.Timers
+@using System.Runtime.InteropServices;
 @inject IApiCaller _caller
 @inject IGeolocationService _geolocationService
 @inject HttpClient Http
@@ -88,15 +89,14 @@
     }
 
     private string GetImageSourcePath(int weatherCode)
-    {   
-        string weatherCodeFolderPath = Path.Combine("/var/www/html/wwwroot", "WeatherIcons/");
+    {                           
+        string weatherCodeFolderPath = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "wwwroot\\WeatherIcons" : "/var/www/html/wwwroot/WeatherIcons/";
         Console.WriteLine($"Fetching image for weather code with path: {weatherCodeFolderPath}");
         
         var weatherCodeFiles = Directory.GetFiles(weatherCodeFolderPath).ToList();
-        var matchedFile = weatherCodeFiles.Where(weatherCodeFiles => weatherCodeFiles.Contains("/" + weatherCode.ToString() + "_")).Single().Substring(21);
 
-        Console.WriteLine($"Matched file: {matchedFile}");
-        return $"{matchedFile}";
+        var matchedFile = weatherCodeFiles.Where(weatherCodeFiles => weatherCodeFiles.Contains(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "\\" + weatherCode.ToString() + "_" : "/" + weatherCode.ToString() + "_")).Single().Substring(21);
+        return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? $"WeatherIcons/{matchedFile}" : $"{matchedFile}";                     
     }
 
     private async Task GetTrailWeather()

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using trail_weather_data_access.Enums;
 using trail_weather_data_access.Models;
 
 namespace trail_weather_data_access.Repositories
@@ -7,9 +8,9 @@ namespace trail_weather_data_access.Repositories
     {
         private readonly TrailWeatherDbContext _db;
 
-        public SportCenterRepository(string connectionString)
+        public SportCenterRepository(string connectionString, DbProviders dbProvider)
         {
-            _db = new TrailWeatherDbContext(connectionString);
+            _db = new TrailWeatherDbContext(connectionString, dbProvider);
         }
 
         public List<SportCenter> GetSportCenters()

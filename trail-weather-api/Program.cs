@@ -1,5 +1,7 @@
+using System.Runtime.InteropServices;
 using trail_weather_api.Services;
 using trail_weather_api.Services.Interfaces;
+using trail_weather_data_access.Enums;
 using trail_weather_data_access.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +23,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<ISportCenterRepository>(provider => new SportCenterRepository(secretPass));
+builder.Services.AddTransient<ISportCenterRepository>(provider => new SportCenterRepository(secretPass, RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? DbProviders.SqlServer : DbProviders.MySql));
 builder.Services.AddTransient<IForecastService, ForecastService>();
 
 builder.Services.AddHttpClient<IForecastService, ForecastService>(client =>
