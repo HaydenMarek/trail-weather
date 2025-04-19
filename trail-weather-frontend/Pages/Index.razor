@@ -41,7 +41,8 @@
     AllowSorting="true"
     Class="table table-hover table-bordered table-striped"
     DataProvider="ForecastDataProvider"
-    Responsive="true">
+    Responsive="true"
+    @key="@forecasts">
 
         <GridColumns>
             <GridColumn TItem="ForecastDTO" HeaderText="BikePark Name" SortKeySelector="item => item.Name">
@@ -106,10 +107,7 @@
 
     private async Task<GridDataProviderResult<ForecastDTO>> ForecastDataProvider(GridDataProviderRequest<ForecastDTO> request)
     {
-        if (forecastsForGrid is null) 
-            forecastsForGrid = forecasts;
-
-        return await Task.FromResult(request.ApplyTo(forecastsForGrid));
+        return await Task.FromResult(request.ApplyTo(forecasts));
     }        
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -137,15 +135,15 @@
         try
         {            
             forecasts = await _caller.GetTrailWeather(range, selectedLocation.Lat, selectedLocation.Lon);
-            forecastsForGrid = forecasts;
-            StateHasChanged();
+            forecastsForGrid = new List<ForecastDTO>(forecasts);
+            await InvokeAsync(StateHasChanged);
         }
         catch (HttpRequestException ex)
         {
             Console.WriteLine(ex.Message);
             forecasts = new List<ForecastDTO>();
-            forecastsForGrid = forecasts;
-            StateHasChanged();
+            forecastsForGrid = new List<ForecastDTO>();
+            await InvokeAsync(StateHasChanged);
         }
     }
 
