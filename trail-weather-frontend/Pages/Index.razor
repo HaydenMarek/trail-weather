@@ -56,7 +56,9 @@
             {
                 var timeIndex = forecasts[0].DailyData.TimeList.IndexOf(time);
                 <GridColumn TItem="ForecastDTO" HeaderText="@DateTime.Parse(@time).DayOfWeek.ToString().Substring(0, 3)" Sortable="false">
-                    <img src=@GetImageSourcePath(@context.DailyData.WeatherCodeList[timeIndex])>
+                    <div class="weather-icon-container">
+                        <img class="weather-icon" src=@GetImageSourcePath(@context.DailyData.WeatherCodeList[timeIndex])>
+                    </div>
                 </GridColumn>                                   
             }
             
@@ -64,6 +66,34 @@
     </Grid>
 
 }
+
+<style>
+    .weather-icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .weather-icon {
+        max-width: 100%;
+        height: auto;
+        width: 48px; /* Default size for larger screens */
+    }
+
+    /* Responsive adjustments */
+    @@media screen and (max-width: 768px) {
+        .weather-icon {
+            width: 32px; /* Smaller size for tablets */
+        }
+    }
+
+    @@media screen and (max-width: 480px) {
+        .weather-icon {
+            width: 24px; /* Even smaller size for mobile phones */
+        }
+    }
+</style>
 
 @code {
     private List<ForecastDTO> forecasts;
