@@ -107,11 +107,15 @@
         try
         {            
             forecasts = await _caller.GetTrailWeather(range, selectedLocation.Lat, selectedLocation.Lon);
+            forecastsForGrid = forecasts;
+            StateHasChanged();
         }
         catch (HttpRequestException ex)
         {
             Console.WriteLine(ex.Message);
             forecasts = new List<ForecastDTO>();
+            forecastsForGrid = forecasts;
+            StateHasChanged();
         }
     }
 
