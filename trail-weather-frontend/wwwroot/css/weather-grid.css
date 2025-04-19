@@ -1,0 +1,38 @@
+.weather-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.weather-icon {
+    max-width: 100%;
+    height: auto;
+    width: 48px; /* Default size for larger screens */
+}
+
+/* Responsive adjustments */
+@@media screen and (max-width: 768px) {
+    .weather-icon {
+        width: 32px; /* Smaller size for tablets */
+    }
+}
+
+@@media screen and (max-width: 480px) {
+    .weather-icon {
+        width: 24px; /* Even smaller size for mobile phones */
+    }
+}
+
+.search-container {
+    margin-bottom: 1rem;
+}
+
+.search-input {
+    border: thin;
+    width: 80%;
+}
+
+.range-input {
+    width: 50px;
+} 

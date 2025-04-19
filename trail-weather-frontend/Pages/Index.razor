@@ -1,22 +1,22 @@
 ﻿@page "/"
 @using trail_weather_frontend.Services
 @using trail_weather_frontend.DTOs
-@using System.IO
-@using System.Text.Json
+@using trail_weather_frontend.Components
 @using System.Timers
-@using System.Runtime.InteropServices;
 @inject IApiCaller _caller
 @inject IGeolocationService _geolocationService
-@inject HttpClient Http
+@inject ILocationSearchService _locationSearchService
+
+<link href="css/weather-grid.css" rel="stylesheet" />
 
 <h3>TrailWeather</h3>
 
-<div>        
+<div class="search-container">        
     <label for="locationInput">Location:</label>
-    <input type="text" id="locationInput" @bind=searchText @oninput="ManualSearch_HandleKeyUp" @onclick="ClearAndSuggest_OnClick" style="border: thin; width:80%" placeholder="Start typing ..."/>
+    <input type="text" id="locationInput" @bind=searchText @oninput="ManualSearch_HandleKeyUp" @onclick="ClearAndSuggest_OnClick" class="search-input" placeholder="Start typing ..."/>
     <br />
     <label for="rangeInput">Range (km):</label>
-    <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp" style="width: 50px">
+    <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp" class="range-input">
     <button class="btn-primary" @onclick="GetTrailWeather">Get Weather</button>
 </div>
 
@@ -57,44 +57,13 @@
             {
                 var timeIndex = forecasts[0].DailyData.TimeList.IndexOf(time);
                 <GridColumn TItem="ForecastDTO" HeaderText="@DateTime.Parse(@time).DayOfWeek.ToString().Substring(0, 3)" Sortable="false">
-                    <div class="weather-icon-container">
-                        <img class="weather-icon" src=@GetImageSourcePath(@context.DailyData.WeatherCodeList[timeIndex])>
-                    </div>
+                    <WeatherIcon WeatherCode="@context.DailyData.WeatherCodeList[timeIndex]" />
                 </GridColumn>                                   
             }
             
         </GridColumns>
     </Grid>
-
 }
-
-<style>
-    .weather-icon-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .weather-icon {
-        max-width: 100%;
-        height: auto;
-        width: 48px; /* Default size for larger screens */
-    }
-
-    /* Responsive adjustments */
-    @@media screen and (max-width: 768px) {
-        .weather-icon {
-            width: 32px; /* Smaller size for tablets */
-        }
-    }
-
-    @@media screen and (max-width: 480px) {
-        .weather-icon {
-            width: 24px; /* Even smaller size for mobile phones */
-        }
-    }
-</style>
 
 @code {
     private List<ForecastDTO> forecasts;
@@ -103,7 +72,6 @@
     private GeoCoordinateDTO selectedLocation { get; set; } = new();
     private string searchText { get; set; } = string.Empty;
     private Timer timer = new(300);
-    private IEnumerable<ForecastDTO> forecastsForGrid = default!;
 
     private async Task<GridDataProviderResult<ForecastDTO>> ForecastDataProvider(GridDataProviderRequest<ForecastDTO> request)
     {
@@ -119,30 +87,17 @@
         }            
     }
 
-    private string GetImageSourcePath(int weatherCode)
-    {                           
-        string weatherCodeFolderPath = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "wwwroot\\WeatherIcons" : "/var/www/html/wwwroot/WeatherIcons/";
-        Console.WriteLine($"Fetching image for weather code with path: {weatherCodeFolderPath}");
-        
-        var weatherCodeFiles = Directory.GetFiles(weatherCodeFolderPath).ToList();
-
-        var matchedFile = weatherCodeFiles.Where(weatherCodeFiles => weatherCodeFiles.Contains(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "\\" + weatherCode.ToString() + "_" : "/" + weatherCode.ToString() + "_")).Single().Substring(21);
-        return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? $"WeatherIcons/{matchedFile}" : $"{matchedFile}";                     
-    }
-
     private async Task GetTrailWeather()
     {                
         try
         {            
             forecasts = await _caller.GetTrailWeather(range, selectedLocation.Lat, selectedLocation.Lon);
-            forecastsForGrid = new List<ForecastDTO>(forecasts);
             await InvokeAsync(StateHasChanged);
         }
         catch (HttpRequestException ex)
         {
             Console.WriteLine(ex.Message);
             forecasts = new List<ForecastDTO>();
-            forecastsForGrid = new List<ForecastDTO>();
             await InvokeAsync(StateHasChanged);
         }
     }
@@ -171,43 +126,8 @@
     private async Task FetchAutocompleteResults(string query)
     {
         timer.Stop();
-        var url = $"https://nominatim.openstreetmap.org/search?format=json&q={Uri.EscapeDataString(query)}";        
-        var result = await Http.GetAsync(url).Result.Content.ReadAsStringAsync();
-        var deserializedResult = JsonSerializer.Deserialize<List<NominatimResult>>(result);
-        suggestions = JsonSerializer.Deserialize<List<NominatimResult>>(result) ?? new();
+        suggestions = await _locationSearchService.SearchLocationsAsync(query);
         await InvokeAsync(StateHasChanged);
-    }
-
-    private async Task<GeoCoordinateDTO> GetLocationDetailsAsync(double latitude, double longitude)
-    {
-        var query = $"/reverse.php?lat={latitude}&lon={longitude}&zoom=18&layer=address&format=jsonv2";
-        var url = $"https://nominatim.openstreetmap.org{query}";
-
-        HttpResponseMessage response = null;
-        try
-        {
-            response = await Http.GetAsync(url);
-        }
-        catch (Exception ex)
-        {
-            Console.Write(ex.Message);
-        }
-        if (response.IsSuccessStatusCode)
-        {
-            var locationDetailsJson = await response.Content.ReadAsStringAsync();
-            var locationDetails = JsonSerializer.Deserialize<NominatimLocationDetailsDTO>(locationDetailsJson);
-            return new GeoCoordinateDTO 
-            { 
-                Lat = Double.Parse(locationDetails.lat),
-                Lon = Double.Parse(locationDetails.lon),
-                Address = locationDetails.display_name
-            };
-        }
-        else
-        {
-            Console.WriteLine($"Failed to fetch location details: {response.ReasonPhrase}");
-            return null;
-        }
     }
 
     private void SelectSuggestion(NominatimResult suggestion)
@@ -220,30 +140,12 @@
         forecasts = new List<ForecastDTO>();
     }
 
-    private class NominatimResult
-    {
-        public long PlaceId { get; set; }
-        public string Licence { get; set; }
-        public string OsmType { get; set; }
-        public long OsmId { get; set; }
-        public string lat { get; set; }
-        public string lon { get; set; }
-        public string Class { get; set; }
-        public string Type { get; set; }
-        public int PlaceRank { get; set; }
-        public double Importance { get; set; }
-        public string AddressType { get; set; }
-        public string Name { get; set; }
-        public string display_name { get; set; }
-        public List<double> BoundingBox { get; set; }
-    }
-
     [JSInvokable]
     public async void OnSuccess(GeolocationPosition pos)
     {        
         selectedLocation.Lat = pos.Coords.Latitude;
         selectedLocation.Lon = pos.Coords.Longitude;
-        var details = await GetLocationDetailsAsync(selectedLocation.Lat, selectedLocation.Lon);
+        var details = await _locationSearchService.GetLocationDetailsAsync(selectedLocation.Lat, selectedLocation.Lon);
         selectedLocation.Address = details.Address;
         searchText = $"{selectedLocation.Address}";
         StateHasChanged();

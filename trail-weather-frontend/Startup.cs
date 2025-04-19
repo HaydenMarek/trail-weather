@@ -24,8 +24,7 @@ namespace trail_weather_frontend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddServerSideBlazor();
-            services.AddTransient<IApiCaller, ApiCaller>();
+            services.AddServerSideBlazor();            
             services.AddHttpClient<IApiCaller, ApiCaller>(client =>
             {
                 client.BaseAddress = new Uri("http://localhost:7168/WeatherForecast/");
@@ -40,7 +39,7 @@ namespace trail_weather_frontend
                     DefaultRequestHeaders = { { "Accept", "application/json" }, { "User-Agent", "TrailWeatherApp" } }
                 });
             services.AddBlazorBootstrap();
-
+            services.AddScoped<ILocationSearchService, LocationSearchService>();                 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

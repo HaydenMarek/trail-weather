@@ -1,0 +1,22 @@
+@using System.Runtime.InteropServices
+@using System.IO
+
+<div class="weather-icon-container">
+    <img class="weather-icon" src=@GetImageSourcePath(WeatherCode)>
+</div>
+
+@code {
+    [Parameter]
+    public int WeatherCode { get; set; }
+
+    private string GetImageSourcePath(int weatherCode)
+    {                           
+        string weatherCodeFolderPath = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "wwwroot\\WeatherIcons" : "/var/www/html/wwwroot/WeatherIcons/";
+        Console.WriteLine($"Fetching image for weather code with path: {weatherCodeFolderPath}");
+        
+        var weatherCodeFiles = Directory.GetFiles(weatherCodeFolderPath).ToList();
+
+        var matchedFile = weatherCodeFiles.Where(weatherCodeFiles => weatherCodeFiles.Contains(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "\\" + weatherCode.ToString() + "_" : "/" + weatherCode.ToString() + "_")).Single().Substring(21);
+        return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? $"WeatherIcons/{matchedFile}" : $"{matchedFile}";                     
+    }
+} 
