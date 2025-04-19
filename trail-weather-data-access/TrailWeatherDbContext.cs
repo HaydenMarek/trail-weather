@@ -10,6 +10,10 @@ namespace trail_weather_data_access
         private readonly string _connectionString;
         private readonly DbProviders _dbProvider;        
 
+        public TrailWeatherDbContext()
+        {
+
+        }
         public TrailWeatherDbContext(string connectionString, DbProviders dbProvider = DbProviders.MySql)
         {
             _connectionString = connectionString;
@@ -38,8 +42,9 @@ namespace trail_weather_data_access
             {
                 entity.HasOne(s => s.GeoData).WithOne(s => s.SportCenter);
                 entity.HasOne(s => s.SportCenterType).WithMany(s => s.SportCenter);
+                entity.HasIndex(s => s.Name).IsUnique(); 
             });
-                
+
             modelBuilder.Entity<SportCenterType>()
                 .HasMany(s => s.SportCenter)
                 .WithOne(s => s.SportCenterType);

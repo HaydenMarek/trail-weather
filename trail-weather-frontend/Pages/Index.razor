@@ -35,40 +35,33 @@
 @if (forecasts != null)
 {
     if (forecasts.Count == 0)
-        return;    
+        return;        
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Bikepark Name</th>
-                <th>Distance to (km)</th>
-                @foreach (var time in forecasts[0].DailyData.TimeList)
-                {
-                    @if(DateTime.Now.Date != DateTime.Parse(@time).Date)
-                    {
-                        <th>@DateTime.Parse(@time).DayOfWeek.ToString().Substring(0, 3)</th>                        
-                    }
-                    else
-                    {
-                        <th>(Now) <br> @DateTime.Parse(@time).DayOfWeek.ToString().Substring(0, 3) </th>
-                    }            
-                }
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
+    <Grid TItem="ForecastDTO"
+    AllowSorting="true"
+    Class="table table-hover table-bordered table-striped"
+    DataProvider="ForecastDataProvider"
+    Responsive="true">
+
+        <GridColumns>
+            <GridColumn TItem="ForecastDTO" HeaderText="BikePark Name" SortKeySelector="item => item.Name">
+                @context.Name
+            </GridColumn>
+
+            <GridColumn TItem="ForecastDTO" HeaderText="Distance to (km)" SortKeySelector="item => item.DistanceTo">
+                @context.DistanceTo
+            </GridColumn>
+            
+            @foreach (var time in forecasts[0].DailyData.TimeList)
             {
-                <tr>
-                    <td>@forecast.Name</td>
-                    <td>@forecast.DistanceTo.ToString()</td> 
-                    @foreach (var weathCode in forecast.DailyData.WeatherCodeList)
-                    {
-                        <td> <img src=@GetImageSourcePath(weathCode)></td>
-                    }
-                </tr>
+                <GridColumn TItem="ForecastDTO" HeaderText="@DateTime.Parse(@time).DayOfWeek.ToString().Substring(0, 3)" Sortable="false">
+                    <img src=@GetImageSourcePath(@context.DailyData.WeatherCodeList[0])>
+                </GridColumn>                                   
             }
-        </tbody>
-    </table>
+            
+        </GridColumns>
+    </Grid>
+
 }
 
 @code {
@@ -78,6 +71,15 @@
     private GeoCoordinateDTO selectedLocation { get; set; } = new();
     private string searchText { get; set; } = string.Empty;
     private Timer timer = new(300);
+    private IEnumerable<ForecastDTO> forecastsForGrid = default!;
+
+    private async Task<GridDataProviderResult<ForecastDTO>> ForecastDataProvider(GridDataProviderRequest<ForecastDTO> request)
+    {
+        if (forecastsForGrid is null) 
+            forecastsForGrid = forecasts;
+
+        return await Task.FromResult(request.ApplyTo(forecastsForGrid));
+    }        
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

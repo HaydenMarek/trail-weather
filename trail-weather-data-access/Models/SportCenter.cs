@@ -6,7 +6,7 @@ namespace trail_weather_data_access.Models
     public class SportCenter
     {
         [Key]
-        public int SportCenterId { get; set; }
+        public int SportCenterId { get; set; }        
         public string Name { get; set; }
         [ForeignKey("GeoData")]
         public int GeoDataId { get; set; }

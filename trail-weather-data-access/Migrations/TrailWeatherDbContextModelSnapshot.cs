@@ -16,7 +16,7 @@ namespace trail_weather_data_access.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -53,7 +53,7 @@ namespace trail_weather_data_access.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("SportCenterTypeId")
                         .HasColumnType("int");
@@ -61,6 +61,9 @@ namespace trail_weather_data_access.Migrations
                     b.HasKey("SportCenterId");
 
                     b.HasIndex("GeoDataId")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
                         .IsUnique();
 
                     b.HasIndex("SportCenterTypeId");
