@@ -12,8 +12,8 @@ namespace trail_weather_data_access
 
         public TrailWeatherDbContext()
         {
-
         }
+
         public TrailWeatherDbContext(string connectionString, DbProviders dbProvider = DbProviders.MySql)
         {
             _connectionString = connectionString;
@@ -26,32 +26,75 @@ namespace trail_weather_data_access
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (_dbProvider == DbProviders.SqlServer)
+            if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(_connectionString);
-            }
-            else
-            {
-                optionsBuilder.UseMySQL(_connectionString);
+                if (_dbProvider == DbProviders.SqlServer)
+                {
+                    optionsBuilder.UseSqlServer(_connectionString);
+                }
+                else
+                {
+                    optionsBuilder.UseMySQL(_connectionString);
+                }
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            // SportCenter configuration
             modelBuilder.Entity<SportCenter>(entity =>
             {
-                entity.HasOne(s => s.GeoData).WithOne(s => s.SportCenter);
-                entity.HasOne(s => s.SportCenterType).WithMany(s => s.SportCenter);
-                entity.HasIndex(s => s.Name).IsUnique(); 
+                entity.HasKey(e => e.SportCenterId);
+                
+                entity.Property(e => e.Name)
+                      .IsRequired()
+                      .HasMaxLength(100);
+
+                entity.HasOne(e => e.GeoData)
+                      .WithOne(e => e.SportCenter)
+                      .HasForeignKey<SportCenter>(e => e.GeoDataId);
+
+                entity.HasOne(e => e.SportCenterType)
+                      .WithMany(e => e.SportCenter)
+                      .HasForeignKey(e => e.SportCenterTypeId);
+
+                entity.HasIndex(e => e.Name)
+                      .IsUnique();
             });
 
-            modelBuilder.Entity<SportCenterType>()
-                .HasMany(s => s.SportCenter)
-                .WithOne(s => s.SportCenterType);
+            // GeoData configuration
+            modelBuilder.Entity<GeoData>(entity =>
+            {
+                entity.HasKey(e => e.GeoDataId);
+                
+                entity.Property(e => e.Lat)
+                      .IsRequired()
+                      .HasColumnType("decimal(9,6)");
 
-            modelBuilder.Entity<GeoData>()
-                .HasOne(g => g.SportCenter)
-                .WithOne(g => g.GeoData);
+                entity.Property(e => e.Lon)
+                      .IsRequired()
+                      .HasColumnType("decimal(9,6)");
+
+                entity.HasOne(e => e.SportCenter)
+                      .WithOne(e => e.GeoData)
+                      .HasForeignKey<SportCenter>(e => e.GeoDataId);
+            });
+
+            // SportCenterType configuration
+            modelBuilder.Entity<SportCenterType>(entity =>
+            {
+                entity.HasKey(e => e.SportCenterTypeId);
+                
+                entity.Property(e => e.Name)
+                      .IsRequired()
+                      .HasMaxLength(50);
+
+                entity.HasMany(e => e.SportCenter)
+                      .WithOne(e => e.SportCenterType)
+                      .HasForeignKey(e => e.SportCenterTypeId);
+            });
         }
     }
 }
