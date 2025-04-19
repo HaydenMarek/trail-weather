@@ -54,8 +54,9 @@
             
             @foreach (var time in forecasts[0].DailyData.TimeList)
             {
+                var timeIndex = forecasts[0].DailyData.TimeList.IndexOf(time);
                 <GridColumn TItem="ForecastDTO" HeaderText="@DateTime.Parse(@time).DayOfWeek.ToString().Substring(0, 3)" Sortable="false">
-                    <img src=@GetImageSourcePath(@context.DailyData.WeatherCodeList[0])>
+                    <img src=@GetImageSourcePath(@context.DailyData.WeatherCodeList[timeIndex])>
                 </GridColumn>                                   
             }
             
