@@ -1,26 +1,35 @@
 .weather-icon-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
+    max-width: 48px; /* Add max-width to container */
+    margin: 0; /* Remove auto margin to allow left alignment */
 }
 
 .weather-icon {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    width: 48px; /* Default size for larger screens */
+    max-width: 48px; /* Default size for larger screens */
+    object-fit: contain; /* Ensure image maintains aspect ratio */
 }
 
 /* Responsive adjustments */
-@@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    .weather-icon-container {
+        max-width: 32px;
+    }
     .weather-icon {
-        width: 32px; /* Smaller size for tablets */
+        max-width: 32px; /* Smaller size for tablets */
     }
 }
 
-@@media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
+    .weather-icon-container {
+        max-width: 24px;
+    }
     .weather-icon {
-        width: 24px; /* Even smaller size for mobile phones */
+        max-width: 24px; /* Even smaller size for mobile phones */
     }
 }
 
@@ -35,4 +44,24 @@
 
 .range-input {
     width: 50px;
+}
+
+.bikepark-name-column {
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+}
+
+.distance-column {
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    text-align: right;
+}
+
+.truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 } 

@@ -39,18 +39,24 @@
 
     <Grid TItem="ForecastDTO"
     AllowSorting="true"
-    Class="table table-hover table-bordered table-striped"
+    Class="table table-hover"
     DataProvider="ForecastDataProvider"
     Responsive="true"
     @key="@forecasts">
 
         <GridColumns>
             <GridColumn TItem="ForecastDTO" HeaderText="BikePark Name" SortKeySelector="item => item.Name">
-                @context.Name
+                <div class="bikepark-name-column">
+                    <div class="truncate-text" title="@context.Name">
+                        @context.Name
+                    </div>
+                </div>
             </GridColumn>
 
-            <GridColumn TItem="ForecastDTO" HeaderText="Distance to (km)" SortKeySelector="item => item.DistanceTo">
-                @context.DistanceTo
+            <GridColumn TItem="ForecastDTO" HeaderText="Dist.(km)" SortKeySelector="item => item.DistanceTo">
+                <div class="distance-column">
+                    @context.DistanceTo
+                </div>
             </GridColumn>
             
             @foreach (var time in forecasts[0].DailyData.TimeList)
