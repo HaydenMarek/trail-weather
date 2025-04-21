@@ -45,7 +45,20 @@
     }
 }
 
-@media (min-width: 641px) {
+@media (min-width: 992px) {
+    .page {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+}
+
+@media (min-width: 992px) {
     .page {
         flex-direction: row;
     }
