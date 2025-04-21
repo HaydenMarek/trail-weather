@@ -2,7 +2,8 @@
 @using trail_weather_frontend.Services
 @using trail_weather_frontend.DTOs
 @using trail_weather_frontend.Components
-@using System.Timers
+@using Timer = System.Timers.Timer
+@using System.Threading
 @inject IApiCaller _caller
 @inject IGeolocationService _geolocationService
 @inject ILocationSearchService _locationSearchService
@@ -79,6 +80,7 @@
     private GeoCoordinateDTO selectedLocation { get; set; } = new();
     private string searchText { get; set; } = string.Empty;
     private Timer timer = new(300);
+    private CancellationTokenSource _cts = new();
 
     private async Task<GridDataProviderResult<ForecastDTO>> ForecastDataProvider(GridDataProviderRequest<ForecastDTO> request)
     {
@@ -89,7 +91,11 @@
     {
         if (firstRender)
         {
-            await _geolocationService.GetCurrentPositionAsync(OnSuccess, OnError);            
+            _cts = new CancellationTokenSource();
+            await _geolocationService.GetCurrentPositionAsync(
+                this,
+                nameof(OnSuccess),
+                nameof(OnError));            
             timer.Elapsed += async (sender, e) => await FetchAutocompleteResults(searchText);             
         }            
     }
@@ -97,7 +103,7 @@
     private async Task GetTrailWeather()
     {                
         try
-        {            
+        {                        
             forecasts = await _caller.GetTrailWeather(range, selectedLocation.Lat, selectedLocation.Lon);
             await InvokeAsync(StateHasChanged);
         }
@@ -139,6 +145,7 @@
 
     private void SelectSuggestion(NominatimResult suggestion)
     {        
+        _cts.Cancel();
         selectedLocation.Lat = Double.Parse(suggestion.lat);
         selectedLocation.Lon = Double.Parse(suggestion.lon);
         selectedLocation.Address = suggestion.display_name;
@@ -162,5 +169,11 @@
     public void OnError(GeolocationPositionError error)
     {        
         Console.WriteLine($"Error: {error.Message}");
+    }
+
+    public void Dispose()
+    {
+        _cts?.Cancel();
+        _cts?.Dispose();
     }
 }
