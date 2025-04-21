@@ -47,9 +47,29 @@
 }
 
 .bikepark-name-column {
-    width: 80px;
-    min-width: 80px;
-    max-width: 80px;
+    width: 250px;
+    min-width: 200px;
+}
+
+@media screen and (max-width: 992px) {
+    .bikepark-name-column {
+        width: 150px;
+        min-width: 150px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bikepark-name-column {
+        width: 100px;
+        min-width: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .bikepark-name-column {
+        width: 80px;
+        min-width: 80px;
+    }
 }
 
 .distance-column {
