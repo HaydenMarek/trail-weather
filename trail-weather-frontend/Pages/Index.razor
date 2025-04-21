@@ -10,15 +10,16 @@
 
 <link href="css/weather-grid.css" rel="stylesheet" />
 
-<h3>TrailWeather</h3>
-
-<div class="search-container">        
-    <label for="locationInput">Location:</label>
-    <input type="text" id="locationInput" @bind=searchText @oninput="ManualSearch_HandleKeyUp" @onclick="ClearAndSuggest_OnClick" class="search-input" placeholder="Start typing ..."/>
-    <br />
-    <label for="rangeInput">Range (km):</label>
-    <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp" class="range-input">
-    <button class="btn-primary" @onclick="GetTrailWeather">Get Weather</button>
+<div class="search-container">            
+    <div style="margin-bottom: 0.5rem;">
+        <label for="locationInput">Location:</label>
+        <input type="text" id="locationInput" @bind=searchText @oninput="ManualSearch_HandleKeyUp" @onclick="ClearAndSuggest_OnClick" class="search-input" placeholder="Start typing ..." />    
+    </div>
+    <div>
+        <label for="rangeInput">Range (km):</label>
+        <input type="text" id="rangeInput" @bind="@range" @onkeyup="HandleKeyUp" class="range-input">
+        <button class="btn-primary" @onclick="GetTrailWeather">Get Weather</button>        
+    </div>
 </div>
 
 @if (suggestions.Any())
