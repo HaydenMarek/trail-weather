@@ -47,8 +47,9 @@
         <GridColumns>
             <GridColumn TItem="ForecastDTO" HeaderText="BikePark Name" SortKeySelector="item => item.Name">
                 <div class="bikepark-name-column">
-                    <div class="truncate-text" title="@context.Name">
+                    <div class="truncate-text">
                         @context.Name
+                        <div class="mobile-tooltip">@context.Name</div>
                     </div>
                 </div>
             </GridColumn>

@@ -49,6 +49,7 @@
 .bikepark-name-column {
     width: 250px;
     min-width: 200px;
+    position: relative;
 }
 
 @media screen and (max-width: 992px) {
@@ -84,4 +85,26 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
+}
+
+.truncate-text:active .mobile-tooltip,
+.truncate-text:hover .mobile-tooltip {
+    display: block;
+}
+
+.mobile-tooltip {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 1000;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 200px;
+    left: 0;
+    top: 100%;
+    margin-top: 5px;
 } 
