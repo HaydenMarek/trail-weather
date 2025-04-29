@@ -1,6 +1,6 @@
 # :globe_with_meridians: [TrailWeather.app](https://trailweather.app/) 
 
-is designed to help users find weather forecasts for bike parks and trails within a specified range of a location. It integrates geolocation, location search, and weather data for an interactive and informative experience.
+Is designed to help users find weather forecasts for bike parks and trails within a specified range of a location. It integrates geolocation, location search, and weather data for an interactive and informative experience.
 
 ## Project Structure
 - **trail-weather-api**
