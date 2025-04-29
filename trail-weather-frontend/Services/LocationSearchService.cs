@@ -1,9 +1,10 @@
 using System;
-using System.Net.Http;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using trail_weather_frontend.DTOs;
+using trail_weather_frontend.Services.Interfaces;
 
 namespace trail_weather_frontend.Services
 {
@@ -18,7 +19,7 @@ namespace trail_weather_frontend.Services
 
         public async Task<List<NominatimResult>> SearchLocationsAsync(string query)
         {
-            var url = $"https://nominatim.openstreetmap.org/search?format=json&q={Uri.EscapeDataString(query)}";        
+            var url = $"https://nominatim.openstreetmap.org/search?format=json&q={Uri.EscapeDataString(query)}";
             var result = await _httpClient.GetAsync(url);
             var content = await result.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<List<NominatimResult>>(content) ?? new();
@@ -34,14 +35,14 @@ namespace trail_weather_frontend.Services
             {
                 var locationDetailsJson = await response.Content.ReadAsStringAsync();
                 var locationDetails = JsonSerializer.Deserialize<NominatimLocationDetailsDTO>(locationDetailsJson);
-                return new GeoCoordinateDTO 
-                { 
+                return new GeoCoordinateDTO
+                {
                     Lat = Double.Parse(locationDetails.lat),
                     Lon = Double.Parse(locationDetails.lon),
                     Address = locationDetails.display_name
                 };
             }
-            
+
             Console.WriteLine($"Failed to fetch location details: {response.ReasonPhrase}");
             return null;
         }
@@ -71,4 +72,4 @@ namespace trail_weather_frontend.Services
         public string lon { get; set; }
         public string display_name { get; set; }
     }
-} 
+}

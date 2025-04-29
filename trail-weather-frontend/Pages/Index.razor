@@ -1,9 +1,11 @@
 ﻿@page "/"
-@using trail_weather_frontend.Services
-@using trail_weather_frontend.DTOs
-@using trail_weather_frontend.Components
-@using Timer = System.Timers.Timer
 @using System.Threading
+@using Timer = System.Timers.Timer
+@using trail_weather_frontend.Components
+@using trail_weather_frontend.DTOs
+@using trail_weather_frontend.Services
+@using trail_weather_frontend.Services.Interfaces
+@using trail_weather_frontend.Services.Interfaces
 @inject IApiCaller _caller
 @inject IGeolocationService _geolocationService
 @inject ILocationSearchService _locationSearchService

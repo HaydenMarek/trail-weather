@@ -3,6 +3,7 @@ using trail_weather_api.Services;
 using trail_weather_api.Services.Interfaces;
 using trail_weather_data_access.Enums;
 using trail_weather_data_access.Repositories;
+using trail_weather_data_access.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,15 +17,12 @@ if (secretPass is null)
 
 if (secretPass is null)
     throw new ArgumentNullException("Connection string is empty", secretPass);
-// Add services to the container. 
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<ISportCenterRepository>(provider => new SportCenterRepository(secretPass, RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? DbProviders.SqlServer : DbProviders.MySql));
-builder.Services.AddTransient<IForecastService, ForecastService>();
 
 builder.Services.AddHttpClient<IForecastService, ForecastService>(client =>
 {
@@ -34,7 +32,6 @@ builder.Services.AddHttpClient<IForecastService, ForecastService>(client =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -42,9 +39,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-
 app.MapControllers();
-
-app.MapGet("/", () => Results.Ok("Minimal api controller result.")); 
-
+app.MapGet("/", () => Results.Ok("Minimal api controller result."));
 app.Run();

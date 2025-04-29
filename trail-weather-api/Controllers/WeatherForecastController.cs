@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using trail_weather_api.DTOs;
 using trail_weather_api.Services.Interfaces;
 using trail_weather_data_access.Models;
-using trail_weather_data_access.Repositories;
+using trail_weather_data_access.Repositories.Interfaces;
 namespace trail_weather_api.Controllers
 {
     [ApiController]
@@ -21,7 +21,7 @@ namespace trail_weather_api.Controllers
 
         [HttpGet("{range}, {lat}, {lon}", Name = "GetByRangeFromLocation")]
         public async Task<List<ForecastDTO>> Get(int range, double lat, double lon)
-        {            
+        {
             GeoCoordinate location = new GeoCoordinate { Latitude = lat, Longitude = lon };
             List<SportCenter> sportCenters = _sportCenterRepository.GetSportCenters();
 
@@ -42,8 +42,8 @@ namespace trail_weather_api.Controllers
         }
 
         private static int CalculateDistance(GeoCoordinate start, GeoCoordinate end)
-        {            
-            return (int)start.GetDistanceTo(end)/1000;
+        {
+            return (int)start.GetDistanceTo(end) / 1000;
         }
     }
 }

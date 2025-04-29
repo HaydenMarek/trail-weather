@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using SharpKml.Dom;
 using SharpKml.Engine;
-using System.Text;
 using System.Runtime.InteropServices;
+using System.Text;
 using trail_weather_data_access;
-using trail_weather_data_access.Models;
 using trail_weather_data_access.Enums;
+using trail_weather_data_access.Models;
 
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 
@@ -24,7 +24,7 @@ if (secretPass is null)
 
 string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
 string kmlFilePath = "/var/www/dataloader/TRAIL_HUNTER.kml";
-string filePath = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) 
+string filePath = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
     ? Path.Combine(projectDirectory, "TRAIL_HUNTER.kml")
     : kmlFilePath;
 

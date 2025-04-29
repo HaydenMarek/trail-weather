@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Web;
 using trail_weather_api.DTOs;
@@ -11,7 +10,7 @@ namespace trail_weather_api.Services
     {
         private readonly HttpClient _httpClient;
         const int PAST_DAYS = 2;
-        const int FORECAST_DAYS = 4;        
+        const int FORECAST_DAYS = 4;
 
         public ForecastService(HttpClient httpClient)
         {
@@ -41,12 +40,12 @@ namespace trail_weather_api.Services
             if (forecastDTOs.Count == 1)
             {
                 WeatherResponseDTO? singleResponse = JsonConvert.DeserializeObject<WeatherResponseDTO>(parsedResponse);
-                if (singleResponse is null)                
+                if (singleResponse is null)
                     throw new NullReferenceException();
-                
+
                 weatherData.Add(singleResponse);
-            }                          
-            
+            }
+
             if (forecastDTOs.Count > 1)
             {
                 List<WeatherResponseDTO>? multipleResponse = JsonConvert.DeserializeObject<List<WeatherResponseDTO>>(parsedResponse);
@@ -55,7 +54,7 @@ namespace trail_weather_api.Services
 
                 weatherData.AddRange(multipleResponse);
             }
-                
+
             if (weatherData is null)
                 throw new Exception("Error while fetching data from the API no data received");
 

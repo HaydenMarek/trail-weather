@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using trail_weather_data_access.Enums;
 using trail_weather_data_access.Models;
 
@@ -9,10 +8,6 @@ namespace trail_weather_data_access
     {
         private readonly string _connectionString;
         private readonly DbProviders _dbProvider;        
-
-        public TrailWeatherDbContext()
-        {
-        }
 
         public TrailWeatherDbContext(string connectionString, DbProviders dbProvider = DbProviders.MySql)
         {
@@ -42,12 +37,11 @@ namespace trail_weather_data_access
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // SportCenter configuration
+            
             modelBuilder.Entity<SportCenter>(entity =>
             {
                 entity.HasKey(e => e.SportCenterId);
-                
+
                 entity.Property(e => e.Name)
                       .IsRequired()
                       .HasMaxLength(100);
@@ -63,12 +57,11 @@ namespace trail_weather_data_access
                 entity.HasIndex(e => e.Name)
                       .IsUnique();
             });
-
-            // GeoData configuration
+            
             modelBuilder.Entity<GeoData>(entity =>
             {
                 entity.HasKey(e => e.GeoDataId);
-                
+
                 entity.Property(e => e.Lat)
                       .IsRequired()
                       .HasColumnType("decimal(9,6)");
@@ -81,12 +74,11 @@ namespace trail_weather_data_access
                       .WithOne(e => e.GeoData)
                       .HasForeignKey<SportCenter>(e => e.GeoDataId);
             });
-
-            // SportCenterType configuration
+            
             modelBuilder.Entity<SportCenterType>(entity =>
             {
                 entity.HasKey(e => e.SportCenterTypeId);
-                
+
                 entity.Property(e => e.Name)
                       .IsRequired()
                       .HasMaxLength(50);

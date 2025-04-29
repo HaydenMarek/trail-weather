@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using trail_weather_data_access.Enums;
 using trail_weather_data_access.Models;
+using trail_weather_data_access.Repositories.Interfaces;
 
 namespace trail_weather_data_access.Repositories
 {

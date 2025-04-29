@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Net.Http;
 using trail_weather_frontend.Services;
+using trail_weather_frontend.Services.Interfaces;
 
 namespace trail_weather_frontend
 {
@@ -18,13 +19,11 @@ namespace trail_weather_frontend
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddServerSideBlazor();            
+            services.AddServerSideBlazor();
             services.AddHttpClient<IApiCaller, ApiCaller>(client =>
             {
                 client.BaseAddress = new Uri("http://localhost:7168/WeatherForecast/");
@@ -32,17 +31,15 @@ namespace trail_weather_frontend
                 client.DefaultRequestHeaders.Add("User-Agent", "TrailWeatherApp");
             });
             services.AddGeolocationServices();
-            services.AddScoped(sp => 
-                new HttpClient 
-                { 
+            services.AddScoped(sp =>
+                new HttpClient
+                {
                     BaseAddress = new Uri("https://nominatim.openstreetmap.org/"),
                     DefaultRequestHeaders = { { "Accept", "application/json" }, { "User-Agent", "TrailWeatherApp" } }
                 });
             services.AddBlazorBootstrap();
-            services.AddScoped<ILocationSearchService, LocationSearchService>();                 
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            services.AddScoped<ILocationSearchService, LocationSearchService>();
+        }        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -56,20 +53,19 @@ namespace trail_weather_frontend
             }
             else
             {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseExceptionHandler("/Error");                
                 app.UseHsts();
             }
-           
+
             app.UseStaticFiles();
 
-            app.UseRouting();            
+            app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
-            });            
+            });
         }
     }
 }
